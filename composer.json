@@ -1,0 +1,42 @@
+{
+	"name" : "appserver-io/lang",
+	"description" : "Lang package implementation providing basic PHP datatypes.",
+	"homepage" : "https://github.com/appserver-io/lang",
+	"license" : "OSL-3.0",
+	"require" : {
+		"php" : ">=5.4.0",
+		"herrera-io/annotations" : "1.0.*"
+	},
+	"require-dev" : {
+		"phpunit/phpunit" : "3.7.*",
+		"appserver-io/build" : "0.1.*"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"AppserverIo\\Lang" : [
+				"src/",
+				"tests/"
+			]
+		}
+	},
+	"authors" : [{
+			"name" : "Tim Wagner",
+			"email" : "tw@appserver.io",
+			"homepage" : "https://github.com/wagnert",
+			"role" : "Developer"
+		}
+	],
+	"config" : {
+		"github-oauth" : {
+			"github.com" : "604a3b5943228e434a5b52c2ba3cf72286d30db9"
+		}
+	},
+	"support" : {
+		"email" : "t.wagner@techdivision.com",
+		"issues" : "https://github.com/appserver-io/lang/issues",
+		"source" : "https://github.com/appserver-io/lang"
+	},
+	"keywords" : [
+		"basic datatypes objects boolean string float integer"
+	]
+}
