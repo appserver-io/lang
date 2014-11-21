@@ -280,9 +280,9 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
      * Returns an array of reflection method instances from the passed reflection class.
      *
      * @param \AppserverIo\Lang\Reflection\ReflectionClass $reflectionClass     The reflection class to return the methods for
-     * @param interger                                      $filter              The filter used for loading the methods
-     * @param array                                         $annotationsToIgnore An array with annotations names we want to ignore when loaded
-     * @param array                                         $annotationAliases   An array with annotation aliases used when create annotation instances
+     * @param interger                                     $filter              The filter used for loading the methods
+     * @param array                                        $annotationsToIgnore An array with annotations names we want to ignore when loaded
+     * @param array                                        $annotationAliases   An array with annotation aliases used when create annotation instances
      *
      * @return array An array with ReflectionMethod instances
      */
