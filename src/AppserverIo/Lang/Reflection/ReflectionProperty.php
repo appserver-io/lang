@@ -41,6 +41,13 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
 {
 
     /**
+     * Default filter for loading reflection properties from a reflection class.
+     *
+     * @var integer
+     */
+    const ALL_MODIFIERS= -1;
+
+    /**
      * The properties class name.
      *
      * @var string
@@ -57,7 +64,7 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
     /**
      * The method annotations.
      *
-     * @var array|null
+     * @var array
      */
     protected $annotations = null;
 
@@ -154,7 +161,14 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
      */
     public function getAnnotations()
     {
-        return ReflectionAnnotation::fromReflectionProperty($this);
+
+        // check if the annotations has been loaded
+        if ($this->annotations == null) {
+            $this->annotations = ReflectionAnnotation::fromReflectionProperty($this);
+        }
+
+        // return the annotations
+        return $this->annotations;
     }
 
     /**
@@ -167,7 +181,8 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
      */
     public function hasAnnotation($annotationName)
     {
-        return array_key_exists($annotationName, $this->getAnnotations());
+        $annotations = $this->getAnnotations();
+        return isset($annotations[$annotationName]);
     }
 
     /**
@@ -183,7 +198,8 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
     {
 
         // first check if the method is available
-        if (array_key_exists($annotationName, $annotations = $this->getAnnotations())) { // if yes, return it
+        $annotations = $this->getAnnotations();
+        if (isset($annotations[$annotationName])) { // if yes, return it
             return $annotations[$annotationName];
         }
 
