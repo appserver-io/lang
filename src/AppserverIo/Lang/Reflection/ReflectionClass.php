@@ -48,6 +48,27 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
     protected $passedName = '';
 
     /**
+     * The class annotations.
+     *
+     * @var array|null
+     */
+    protected $annotations = null;
+
+    /**
+     * The class methods in an associative, three dimensional array with modifiers and method names as keys.
+     *
+     * @var array
+     */
+    protected $methods = array();
+
+    /**
+     * The class properties in an associative, three dimensional array with modifiers and property names as keys.
+     *
+     * @var array
+     */
+    protected $properties = array();
+
+    /**
      * Array with annotations names we want to ignore when loaded.
      *
      * @var array
@@ -148,7 +169,14 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
      */
     public function getAnnotations()
     {
-        return ReflectionAnnotation::fromReflectionClass($this);
+
+        // check if the annotations has been loaded
+        if ($this->annotations == null) {
+            $this->annotations = ReflectionAnnotation::fromReflectionClass($this);
+        }
+
+        // return the annotations
+        return $this->annotations;
     }
 
     /**
@@ -161,7 +189,8 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
      */
     public function hasAnnotation($annotationName)
     {
-        return array_key_exists($annotationName, $this->getAnnotations());
+        $annotations = $this->getAnnotations();
+        return isset($annotations[$annotationName]);
     }
 
     /**
@@ -177,7 +206,8 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
     {
 
         // first check if the method is available
-        if (array_key_exists($annotationName, $annotations = $this->getAnnotations())) { // if yes, return it
+        $annotations = $this->getAnnotations();
+        if (isset($annotations[$annotationName])) { // if yes, return it
             return $annotations[$annotationName];
         }
 
@@ -194,9 +224,16 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
      * @see \AppserverIo\Lang\Reflection\ClassInterface::getMethods()
      * @link http://php.net/manual/en/reflectionclass.getmethods.php
      */
-    public function getMethods($filter = -1)
+    public function getMethods($filter = ReflectionProperty::ALL_MODIFIERS)
     {
-        return ReflectionMethod::fromReflectionClass($this, $filter, $this->getAnnotationsToIgnore(), $this->getAnnotationAliases());
+
+        // check if the methods for the requested filter has been loaded
+        if (isset($this->methods[$filter]) === false) {
+            $this->methods[$filter] = ReflectionMethod::fromReflectionClass($this, $filter, $this->getAnnotationsToIgnore(), $this->getAnnotationAliases());
+        }
+
+        // return the requested method
+        return $this->methods[$filter];
     }
 
     /**
@@ -209,7 +246,8 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
      */
     public function hasMethod($name)
     {
-        return array_key_exists($name, $this->getMethods());
+        $methods = $this->getMethods();
+        return isset($methods[$name]);
     }
 
     /**
@@ -226,7 +264,8 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
     {
 
         // first check if the method is available
-        if (array_key_exists($name, $methods = $this->getMethods())) { // if yes, return it
+        $methods = $this->getMethods();
+        if (isset($methods[$name])) { // if yes, return it
             return $methods[$name];
         }
 
@@ -243,9 +282,16 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
      * @see \AppserverIo\Lang\Reflection\ClassInterface::getProperties()
      * @link http://php.net/manual/en/reflectionclass.getproperties.php
      */
-    public function getProperties($filter = -1)
+    public function getProperties($filter = ReflectionProperty::ALL_MODIFIERS)
     {
-        return ReflectionProperty::fromReflectionClass($this, $filter, $this->getAnnotationsToIgnore(), $this->getAnnotationAliases());
+
+        // check if the properties for the requested filter has been loaded
+        if (isset($this->properties[$filter]) === false) {
+            $this->properties[$filter] = ReflectionProperty::fromReflectionClass($this, $filter, $this->getAnnotationsToIgnore(), $this->getAnnotationAliases());
+        }
+
+        // return the requested properties
+        return $this->properties[$filter];
     }
 
     /**
@@ -258,7 +304,8 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
      */
     public function hasProperty($name)
     {
-        return array_key_exists($name, $this->getProperties());
+        $properties = $this->getProperties();
+        return isset($properties[$name]);
     }
 
     /**
@@ -275,7 +322,8 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
     {
 
         // first check if the property is available
-        if (array_key_exists($name, $properties = $this->getProperties())) { // if yes, return it
+        $properties = $this->getProperties();
+        if (isset($properties[$name])) { // if yes, return it
             return $properties[$name];
         }
 

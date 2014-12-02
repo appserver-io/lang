@@ -1,3 +1,13 @@
+# Version 0.1.10
+
+## Bugfixes
+
+* Performance optimizations
+
+## Features
+
+* None
+
 # Version 0.1.9
 
 ## Bugfixes

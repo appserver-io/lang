@@ -41,6 +41,13 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
 {
 
     /**
+     * Default filter for loading reflection methods from a reflection class.
+     *
+     * @var integer
+     */
+    const ALL_MODIFIERS= -1;
+
+    /**
      * The class name to invoke the method on.
      *
      * @var string
@@ -64,7 +71,7 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
     /**
      * The method annotations.
      *
-     * @var array|null
+     * @var array
      */
     protected $annotations = null;
 
@@ -172,7 +179,14 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
      */
     public function getAnnotations()
     {
-        return ReflectionAnnotation::fromReflectionMethod($this);
+
+        // check if the annotations has been loaded
+        if ($this->annotations == null) {
+            $this->annotations = ReflectionAnnotation::fromReflectionMethod($this);
+        }
+
+        // return the annotations
+        return $this->annotations;
     }
 
     /**
@@ -185,7 +199,8 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
      */
     public function hasAnnotation($annotationName)
     {
-        return array_key_exists($annotationName, $this->getAnnotations());
+        $annotations = $this->getAnnotations();
+        return isset($annotations[$annotationName]);
     }
 
     /**
@@ -201,7 +216,8 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
     {
 
         // first check if the method is available
-        if (array_key_exists($annotationName, $annotations = $this->getAnnotations())) { // if yes, return it
+        $annotations = $this->getAnnotations();
+        if (isset($annotations[$annotationName])) { // if yes, return it
             return $annotations[$annotationName];
         }
 
