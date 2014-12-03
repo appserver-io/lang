@@ -171,7 +171,7 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
     {
 
         // check if the annotations has been loaded
-        if ($this->annotations == null) {
+        if (isset($this->annotations) === false) {
             $this->annotations = ReflectionAnnotation::fromReflectionClass($this);
         }
 

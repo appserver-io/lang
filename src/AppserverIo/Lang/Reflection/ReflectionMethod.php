@@ -181,7 +181,7 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
     {
 
         // check if the annotations has been loaded
-        if ($this->annotations == null) {
+        if (isset($this->annotations) === false) {
             $this->annotations = ReflectionAnnotation::fromReflectionMethod($this);
         }
 
