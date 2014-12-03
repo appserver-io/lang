@@ -163,7 +163,7 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
     {
 
         // check if the annotations has been loaded
-        if ($this->annotations == null) {
+        if (isset($this->annotations) === false) {
             $this->annotations = ReflectionAnnotation::fromReflectionProperty($this);
         }
 

@@ -1,3 +1,13 @@
+# Version 0.1.11
+
+## Bugfixes
+
+* Use isset() to check for initialized instances instead of == null comparison
+
+## Features
+
+* None
+
 # Version 0.1.10
 
 ## Bugfixes
