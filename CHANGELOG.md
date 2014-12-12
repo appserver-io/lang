@@ -1,3 +1,13 @@
+# Version 0.1.12
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Do not overwrite annotation values when passing them to constructor, instead copy each key value pair
+
 # Version 0.1.11
 
 ## Bugfixes

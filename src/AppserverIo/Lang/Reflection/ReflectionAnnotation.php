@@ -67,8 +67,16 @@ class ReflectionAnnotation extends Object implements AnnotationInterface, \Seria
      */
     public function __construct($annotationName, array $values = array())
     {
+
+        // set the annotation name
         $this->annotationName = $annotationName;
-        $this->values = $values;
+
+        // ATTENTION: We need to copy the values, because if not, it would not be
+        //            possible to pre-initialize them in an annotation implements
+        //            constructor!
+        foreach ($values as $key => $value) {
+            $this->values[$key] = $value;
+        }
     }
 
     /**
