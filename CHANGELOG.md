@@ -1,3 +1,13 @@
+# Version 0.1.14
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Implement ReflectionMethod::getParameters() method
+
 # Version 0.1.13
 
 ## Bugfixes

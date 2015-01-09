@@ -181,7 +181,7 @@ class ReflectionParameter extends Object implements ParameterInterface, \Seriali
         $reflectionParameters = array();
 
         // load the reflection parameters and initialize the array with the reflection parameters
-        $phpReflectionMethod = $reflectionMethod->toPhpReflectionClass();
+        $phpReflectionMethod = $reflectionMethod->toPhpReflectionMethod();
         foreach ($phpReflectionMethod->getParameters() as $phpReflectionParameter) {
             $reflectionParameters[$phpReflectionParameter->getName()] = ReflectionParameter::fromPhpReflectionParameter($phpReflectionParameter);
         }

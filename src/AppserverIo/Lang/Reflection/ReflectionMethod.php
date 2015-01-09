@@ -168,7 +168,14 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
      */
     public function getParameters()
     {
-        throw new ReflectionException(__METHOD__ . ' has not been implemented yet');
+
+        // check if the parameters has been loaded
+        if (isset($this->parameters) === false) {
+            $this->parameters = ReflectionParameter::fromReflectionMethod($this);
+        }
+
+        // return the parameters
+        return $this->parameters;
     }
 
     /**
