@@ -73,7 +73,7 @@ class ReflectionParameterTest extends \PHPUnit_Framework_TestCase
      */
     public function testMethodWithTwoParameters()
     {
-        $reflectionParameter = new ReflectionParameter(__CLASS__, 'methodWithTwoParameters', 'test2');
+        $reflectionParameter = new ReflectionParameter(__CLASS__, 'methodWithTwoParameters', 'test1');
         $this->assertEquals(1, $reflectionParameter->getPosition());
     }
 
@@ -92,12 +92,12 @@ class ReflectionParameterTest extends \PHPUnit_Framework_TestCase
     /**
      * A method with one parameter, used for testing purposes.
      *
-     * @param string $test1 First test parameter
-     * @param string $test2 Second test parameter
+     * @param string $test0 First test parameter
+     * @param string $test1 Second test parameter
      *
      * @return void
      */
-    public function methodWithTwoParameters($test1, $test2)
+    public function methodWithTwoParameters($test0, $test1)
     {
         // we do nothing here
     }

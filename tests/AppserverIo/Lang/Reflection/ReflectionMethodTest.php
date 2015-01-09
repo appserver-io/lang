@@ -45,6 +45,8 @@ class ReflectionMethodTest extends \PHPUnit_Framework_TestCase
      */
     const METHOD_NAME = 'testGetAnnotation';
 
+    const METHOD_WITH_PARAMETERS = 'methodWithTwoParameters';
+
     /**
      * Initializes the instance before we run each test.
      *
@@ -82,18 +84,6 @@ class ReflectionMethodTest extends \PHPUnit_Framework_TestCase
     {
         // check for the correct class name
         $this->assertEquals('AppserverIo\Lang\Reflection\ReflectionMethod', ReflectionMethod::__getClass());
-    }
-
-    /**
-     * This method is acutally not implemented, so we expected an exception.
-     *
-     * @return void
-     * @expectedException AppserverIo\Lang\Reflection\ReflectionException
-     */
-    public function testGetParameters()
-    {
-        $reflectionClass = new ReflectionClass(__CLASS__);
-        $reflectionClass->getMethod('testGetParameters')->getParameters();
     }
 
     /**
@@ -139,5 +129,49 @@ class ReflectionMethodTest extends \PHPUnit_Framework_TestCase
         // create the reflection method and invoke it with arguments
         $reflectionMethod = $reflectionClass->getMethod('getValue');
         $this->assertSame($value, $reflectionMethod->invoke($instance, $key));
+    }
+
+    /**
+     * Tests if the method parameters returns the correct number of parameters.
+     *
+     * @return void
+     */
+    public function testGetParametersCount()
+    {
+        $reflectionMethod = new ReflectionMethod(__CLASS__, ReflectionMethodTest::METHOD_WITH_PARAMETERS);
+        $this->assertCount(2, $reflectionMethod->getParameters());
+    }
+
+    /**
+     * Tests if the method parameters returns the correct number of parameters.
+     *
+     * @return void
+     */
+    public function testGetParametersName()
+    {
+
+        // load the reflection method
+        $reflectionMethod = new ReflectionMethod(__CLASS__, ReflectionMethodTest::METHOD_WITH_PARAMETERS);
+
+        // initialize the counter
+        $counter = 0;
+
+        // iterate over the parameters and check the parameter names
+        foreach ($reflectionMethod->getParameters() as $reflectionParameter) {
+            $this->assertSame('test' . $counter++, $reflectionParameter->getParameterName());
+        }
+    }
+
+    /**
+     * A method with one parameter, used for testing purposes.
+     *
+     * @param string $test0 First test parameter
+     * @param string $test1 Second test parameter
+     *
+     * @return void
+     */
+    public function methodWithTwoParameters($test0, $test1)
+    {
+        // we do nothing here
     }
 }
