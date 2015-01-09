@@ -1,3 +1,13 @@
+# Version 0.1.13
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add ParameterInterface interface and ReflectionParameter class
+
 # Version 0.1.12
 
 ## Bugfixes
