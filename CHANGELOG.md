@@ -1,3 +1,13 @@
+# Version 0.1.15
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Implement ReflectionClass::addAnnotationAlias(), ReflectionMethod::addAnnotationAlias() and ReflectionProperty::addAnnotationAlias()
+
 # Version 0.1.14
 
 ## Bugfixes

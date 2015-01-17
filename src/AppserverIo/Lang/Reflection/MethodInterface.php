@@ -104,4 +104,14 @@ interface MethodInterface
      * @return \ReflectionMethod The PHP reflection method instance
      */
     public function toPhpReflectionMethod();
+
+    /**
+     * Registers the annotation alias for the passed class name.
+     *
+     * @param string $annotationName      The alias
+     * @param string $annotationClassName The resolving class name
+     *
+     * @return void
+     */
+    public function addAnnotationAlias($annotationName, $annotationClassName);
 }

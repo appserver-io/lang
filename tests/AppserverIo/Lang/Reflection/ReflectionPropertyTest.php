@@ -116,4 +116,24 @@ class ReflectionPropertyTest extends \PHPUnit_Framework_TestCase
     {
         $this->reflectionProperty->getAnnotation('UnknownAnnotation');
     }
+
+    /**
+     * Checks if the addAnnotationAlias() method works as expected.
+     *
+     * @return void
+     */
+    public function testAddAnnotationAlias()
+    {
+
+        // add the annotation alias
+        $this->reflectionProperty->addAnnotationAlias($name = 'test', $className = __CLASS__);
+
+        // load the annotation aliases
+        $annotationAliases = $this->reflectionProperty->getAnnotationAliases();
+
+        // check the annotation alias
+        $this->assertCount(1, $annotationAliases);
+        $this->assertTrue(array_key_exists($name, $annotationAliases));
+        $this->assertContains($className, $annotationAliases);
+    }
 }

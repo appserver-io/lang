@@ -178,4 +178,14 @@ interface ClassInterface
      * @return \ReflectionClass The PHP reflection class instance
      */
     public function toPhpReflectionClass();
+
+    /**
+     * Registers the annotation alias for the passed class name.
+     *
+     * @param string $annotationName      The alias
+     * @param string $annotationClassName The resolving class name
+     *
+     * @return void
+     */
+    public function addAnnotationAlias($annotationName, $annotationClassName);
 }
