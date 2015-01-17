@@ -97,4 +97,14 @@ interface PropertyInterface
      * @return \ReflectionProperty The PHP reflection property instance
      */
     public function toPhpReflectionProperty();
+
+    /**
+     * Registers the annotation alias for the passed class name.
+     *
+     * @param string $annotationName      The alias
+     * @param string $annotationClassName The resolving class name
+     *
+     * @return void
+     */
+    public function addAnnotationAlias($annotationName, $annotationClassName);
 }

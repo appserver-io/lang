@@ -154,6 +154,20 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
     }
 
     /**
+     * Registers the annotation alias for the passed class name.
+     *
+     * @param string $annotationName      The alias
+     * @param string $annotationClassName The resolving class name
+     *
+     * @return void
+     * @see \AppserverIo\Lang\Reflection\PropertyInterface::addAnnotationAlias()
+     */
+    public function addAnnotationAlias($annotationName, $annotationClassName)
+    {
+        $this->annotationAliases[$annotationName] = $annotationClassName;
+    }
+
+    /**
      * Returns the method annotations.
      *
      * @return array The method annotations

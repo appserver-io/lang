@@ -163,6 +163,26 @@ class ReflectionMethodTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Checks if the addAnnotationAlias() method works as expected.
+     *
+     * @return void
+     */
+    public function testAddAnnotationAlias()
+    {
+
+        // add the annotation alias
+        $this->reflectionMethod->addAnnotationAlias($name = 'test', $className = __CLASS__);
+
+        // load the annotation aliases
+        $annotationAliases = $this->reflectionMethod->getAnnotationAliases();
+
+        // check the annotation alias
+        $this->assertCount(1, $annotationAliases);
+        $this->assertTrue(array_key_exists($name, $annotationAliases));
+        $this->assertContains($className, $annotationAliases);
+    }
+
+    /**
      * A method with one parameter, used for testing purposes.
      *
      * @param string $test0 First test parameter
