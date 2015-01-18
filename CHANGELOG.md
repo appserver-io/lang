@@ -2,7 +2,7 @@
 
 ## Bugfixes
 
-* Nonee
+* None
 
 ## Features
 
