@@ -1,3 +1,13 @@
+# Version 0.1.16
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Added a NotImplementedException class
+
 # Version 0.1.15
 
 ## Bugfixes
