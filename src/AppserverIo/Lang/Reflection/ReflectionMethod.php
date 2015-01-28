@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Library
- * @package    Lang
- * @subpackage Reflection
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io/lang
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io/lang
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Lang\Reflection;
@@ -28,14 +25,11 @@ use AppserverIo\Lang\Object;
 /**
  * A wrapper instance for a reflection method.
  *
- * @category   Library
- * @package    Lang
- * @subpackage Reflection
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io/lang
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io/lang
+ * @link      http://www.appserver.io
  */
 class ReflectionMethod extends Object implements MethodInterface, \Serializable
 {
@@ -238,7 +232,8 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
 
         // first check if the method is available
         $annotations = $this->getAnnotations();
-        if (isset($annotations[$annotationName])) { // if yes, return it
+        if (isset($annotations[$annotationName])) {
+            // if yes, return it
             return $annotations[$annotationName];
         }
 
@@ -317,7 +312,7 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
      * Returns an array of reflection method instances from the passed reflection class.
      *
      * @param \AppserverIo\Lang\Reflection\ReflectionClass $reflectionClass     The reflection class to return the methods for
-     * @param interger                                     $filter              The filter used for loading the methods
+     * @param integer                                      $filter              The filter used for loading the methods
      * @param array                                        $annotationsToIgnore An array with annotations names we want to ignore when loaded
      * @param array                                        $annotationAliases   An array with annotation aliases used when create annotation instances
      *

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * \AppserverIo\Lang\NumberFormatException
+ * \AppserverIo\Lang\NotImplementedException
  *
  * NOTICE OF LICENSE
  *
@@ -11,8 +11,6 @@
  *
  * PHP version 5
  *
- * @category  Library
- * @package   Lang
  * @author    Bernhard Wick <bw@appserver.io>
  * @copyright 2015 TechDivision GmbH <info@appserver.io>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -25,8 +23,6 @@ namespace AppserverIo\Lang;
 /**
  * Thrown to indicate that the called method has not been implemented yet and can therefore not be used.
  *
- * @category  Library
- * @package   Lang
  * @author    Bernhard Wick <bw@appserver.io>
  * @copyright 2015 TechDivision GmbH <info@appserver.io>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)

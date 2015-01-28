@@ -1,6 +1,6 @@
 # PHP language extension
 
-[![Latest Stable Version](https://poser.pugx.org/appserver-io/lang/v/stable.png)](https://packagist.org/packages/appserver-io/lang) [![Total Downloads](https://poser.pugx.org/appserver-io/lang/downloads.png)](https://packagist.org/packages/appserver-io/lang) [![Latest Unstable Version](https://poser.pugx.org/appserver-io/lang/v/unstable.png)](https://packagist.org/packages/appserver-io/lang) [![License](https://poser.pugx.org/appserver-io/lang/license.png)](https://packagist.org/packages/appserver-io/lang) [![Build Status](https://travis-ci.org/appserver-io/lang.png)](https://travis-ci.org/appserver-io/lang)[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/appserver-io/lang/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/appserver-io/lang/?branch=master)[![Code Coverage](https://scrutinizer-ci.com/g/appserver-io/lang/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/appserver-io/lang/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/appserver-io/lang/v/stable.png)](https://packagist.org/packages/appserver-io/lang) [![Total Downloads](https://poser.pugx.org/appserver-io/lang/downloads.png)](https://packagist.org/packages/appserver-io/lang) [![License](https://poser.pugx.org/appserver-io/lang/license.png)](https://packagist.org/packages/appserver-io/lang) [![Build Status](https://travis-ci.org/appserver-io/lang.png)](https://travis-ci.org/appserver-io/lang) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/appserver-io/lang/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/appserver-io/lang/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/appserver-io/lang/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/appserver-io/lang/?branch=master)
 
 ## Introduction
 
@@ -26,15 +26,15 @@ This package provides classes representing an object oriented implementation for
 
 As there has been (and still are) many discussions about PHP and type safety i decided to implement a small, really
 basic library that will offer the most basic datatype needed in nearly every project. To be honest, i really like
-almost allof those nice possibilities languages like Java provides, but as PHP is not Java, you always have to find a
+almost all of those nice possibilities languages like Java provides, but as PHP is not Java, you always have to find a
 neat way for implementing similar things in a way it makes sense in a PHP environment.
 
-The intention for implementing that classes was the possiblity to make your critical functions and methods type safe,
-by using them for type hints on the one hand and the possiblity to have an quick and easy to use kind of data
+The intention for implementing that classes was the possibility to make your critical functions and methods type safe,
+by using them for type hints on the one hand and the possibility to have an quick and easy to use kind of data
 validation mechanism on the other.
 
 As you may know, using type hints will probably slow down your code a bit, so take care when you use them and
-always have an eye on possible performance impacts by running performance tests regularily.
+always have an eye on possible performance impacts by running performance tests regularly.
 
 The data type implementations this library will provide, are
 
@@ -55,7 +55,7 @@ as superclass.
 
 ### Boolean
 
-Using a `Boolean` instance to compare against anonther one or try to instanciate it with a not boolean value.
+Using a `Boolean` instance to compare against another one or try to instantiate it with a not boolean value.
 
 ```php
 // initialize a new Integer instance
@@ -118,5 +118,3 @@ send me a pull request :)
 # External Links
 
 * Documentation at [appserver.io](http://docs.appserver.io)
-* Documentation on [GitHub](https://github.com/techdivision/TechDivision_AppserverDocumentation)
-* [Getting started](https://github.com/techdivision/TechDivision_AppserverDocumentation/tree/master/docs/getting-started)

@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Library
- * @package    Lang
- * @subpackage Reflection
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io/lang
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io/lang
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Lang\Reflection;
@@ -28,14 +25,11 @@ use AppserverIo\Lang\Object;
 /**
  * A wrapper instance for a reflection property.
  *
- * @category   Library
- * @package    Lang
- * @subpackage Reflection
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io/lang
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io/lang
+ * @link      http://www.appserver.io
  */
 class ReflectionProperty extends Object implements PropertyInterface, \Serializable
 {
@@ -213,7 +207,8 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
 
         // first check if the method is available
         $annotations = $this->getAnnotations();
-        if (isset($annotations[$annotationName])) { // if yes, return it
+        if (isset($annotations[$annotationName])) {
+            // if yes, return it
             return $annotations[$annotationName];
         }
 
@@ -262,7 +257,7 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
      * Returns an array of reflection property instances from the passed reflection class.
      *
      * @param \AppserverIo\Lang\Reflection\ReflectionClass $reflectionClass     The reflection class to return the properties for
-     * @param interger                                     $filter              The filter used for loading the properties
+     * @param integer                                      $filter              The filter used for loading the properties
      * @param array                                        $annotationsToIgnore An array with annotations names we want to ignore when loaded
      * @param array                                        $annotationAliases   An array with annotation aliases used when create annotation instances
      *

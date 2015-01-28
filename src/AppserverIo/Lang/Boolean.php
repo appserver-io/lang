@@ -11,10 +11,8 @@
  *
  * PHP version 5
  *
- * @category  Library
- * @package   Lang
  * @author    Tim Wagner <tw@appserver.io>
- * @copyright 2014 TechDivision GmbH <info@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
@@ -26,10 +24,8 @@ namespace AppserverIo\Lang;
  * This class implements functionality to handle
  * a boolean value as object.
  *
- * @category  Library
- * @package   Lang
  * @author    Tim Wagner <tw@appserver.io>
- * @copyright 2014 TechDivision GmbH <info@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
@@ -95,7 +91,6 @@ class Boolean extends Object
      *
      * @param boolean $value The value to be represented by the Boolean.
      *
-     * @return void
      * @throws \AppserverIo\Lang\ClassCastException The passed value is not a valid boolean representation
      */
     public function __construct($value)
