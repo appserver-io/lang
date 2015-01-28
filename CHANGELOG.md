@@ -1,3 +1,13 @@
+# Version 0.1.17
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Applied new coding conventions
+
 # Version 0.1.16
 
 ## Bugfixes

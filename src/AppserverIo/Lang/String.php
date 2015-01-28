@@ -11,10 +11,8 @@
  *
  * PHP version 5
  *
- * @category  Library
- * @package   Lang
  * @author    Tim Wagner <tw@appserver.io>
- * @copyright 2014 TechDivision GmbH <info@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
@@ -26,10 +24,8 @@ namespace AppserverIo\Lang;
  * This class implements functionality to handle
  * a string value as object.
  *
- * @category  Library
- * @package   Lang
  * @author    Tim Wagner <tw@appserver.io>
- * @copyright 2014 TechDivision GmbH <info@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
@@ -67,8 +63,6 @@ class String extends Object implements \Serializable
      * constructor is unnecessary since Strings are immutable.
      *
      * @param mixed $value Holds the value to initialize the String instance with
-     *
-     * @return void
      */
     public function __construct($value = null)
     {
@@ -416,7 +410,7 @@ class String extends Object implements \Serializable
      * md5 encryptes the string and returns the
      * instance.
      *
-     * @return \TechDivion\Lang\String The instance md5 encrypted
+     * @return \AppserverIo\Lang\String The instance md5 encrypted
      */
     public function md5()
     {
@@ -427,7 +421,7 @@ class String extends Object implements \Serializable
      * Converts the string value to upper case
      * and returns the instance.
      *
-     * @return \TechDivion\Lang\String The instance
+     * @return \AppserverIo\Lang\String The instance
      */
     public function toUpperCase()
     {
@@ -438,7 +432,7 @@ class String extends Object implements \Serializable
      * Converts the string value to lower case
      * and returns the instance.
      *
-     * @return \TechDivion\Lang\String The instance
+     * @return \AppserverIo\Lang\String The instance
      */
     public function toLowerCase()
     {
