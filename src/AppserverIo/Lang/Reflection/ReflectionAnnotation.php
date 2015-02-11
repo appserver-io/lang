@@ -49,7 +49,7 @@ class ReflectionAnnotation extends Object implements AnnotationInterface, \Seria
      *
      * @var array
      */
-    protected $values = array();
+    protected $values;
 
     /**
      * The constructor the initializes the instance with the
@@ -60,6 +60,10 @@ class ReflectionAnnotation extends Object implements AnnotationInterface, \Seria
      */
     public function __construct($annotationName, array $values = array())
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->annotationName = '';
+        $this->values = array();
 
         // set the annotation name
         $this->annotationName = $annotationName;

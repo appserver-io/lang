@@ -39,49 +39,49 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
      *
      * @var integer
      */
-    const ALL_MODIFIERS= -1;
+    const ALL_MODIFIERS = -1;
 
     /**
      * The class name to invoke the method on.
      *
      * @var string
      */
-    protected $className = '';
+    protected $className;
 
     /**
      * The method name to invoke on the class.
      *
      * @var string
      */
-    protected $methodName = '';
+    protected $methodName;
 
     /**
      * The method parameters.
      *
      * @var string
      */
-    protected $parameters = null;
+    protected $parameters;
 
     /**
      * The method annotations.
      *
      * @var array
      */
-    protected $annotations = null;
+    protected $annotations;
 
     /**
      * Array with annotations names we want to ignore when loaded.
      *
      * @var array
      */
-    protected $annotationsToIgnore = array();
+    protected $annotationsToIgnore;
 
     /**
      * Array with annotation aliases used when create annotation instances.
      *
      * @var array
      */
-    protected $annotationAliases = array();
+    protected $annotationAliases;
 
     /**
      * Initializes the timeout method with the passed data.
@@ -93,6 +93,15 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
      */
     public function __construct($className, $methodName, array $annotationsToIgnore = array(), array $annotationAliases = array())
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->className = '';
+        $this->methodName = '';
+        $this->parameters = null;
+        $this->annotations = null;
+        $this->annotationsToIgnore = array();
+        $this->annotationAliases = array();
+
         $this->className = $className;
         $this->methodName = $methodName;
         $this->annotationsToIgnore = $annotationsToIgnore;

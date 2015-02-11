@@ -1,3 +1,13 @@
+# Version 0.1.18
+
+## Bugfixes
+
+* Declarative property default values may break thread safety
+
+## Features
+
+* None
+
 # Version 0.1.17
 
 ## Bugfixes
