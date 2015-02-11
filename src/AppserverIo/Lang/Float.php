@@ -38,7 +38,7 @@ class Float extends Number implements \Serializable
      *
      * @var float
      */
-    protected $value = null;
+    protected $value;
 
     /**
      * Constructs a newly allocated <code>Float</code> object that
@@ -48,6 +48,10 @@ class Float extends Number implements \Serializable
      */
     public function __construct($value)
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->value = null;
+
         if (!is_float($value)) {
             NumberFormatException::forInputString($value);
         }

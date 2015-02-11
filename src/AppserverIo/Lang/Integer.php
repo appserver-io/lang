@@ -38,7 +38,7 @@ class Integer extends Number implements \Serializable
      *
      * @var integer
      */
-    protected $value = null;
+    protected $value;
 
     /**
      * Constructs a newly allocated <code>Integer</code> object that
@@ -50,6 +50,10 @@ class Integer extends Number implements \Serializable
      */
     public function __construct($value)
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->value = null;
+
         if (!is_int($value)) {
             NumberFormatException::forInputString($value);
         }

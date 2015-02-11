@@ -39,42 +39,42 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
      *
      * @var string
      */
-    protected $passedName = '';
+    protected $passedName;
 
     /**
      * The class annotations.
      *
      * @var array|null
      */
-    protected $annotations = null;
+    protected $annotations;
 
     /**
      * The class methods in an associative, three dimensional array with modifiers and method names as keys.
      *
      * @var array
      */
-    protected $methods = array();
+    protected $methods;
 
     /**
      * The class properties in an associative, three dimensional array with modifiers and property names as keys.
      *
      * @var array
      */
-    protected $properties = array();
+    protected $properties;
 
     /**
      * Array with annotations names we want to ignore when loaded.
      *
      * @var array
      */
-    protected $annotationsToIgnore = array();
+    protected $annotationsToIgnore;
 
     /**
      * Array with annotation aliases used when create annotation instances.
      *
      * @var array
      */
-    protected $annotationAliases = array();
+    protected $annotationAliases;
 
     /**
      * Initializes the timed object with the passed data.
@@ -85,6 +85,15 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
      */
     public function __construct($name, array $annotationsToIgnore = array(), array $annotationAliases = array())
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->passedName = '';
+        $this->annotations = null;
+        $this->methods = array();
+        $this->properties = array();
+        $this->annotationsToIgnore = array();
+        $this->annotationAliases = array();
+
         $this->passedName = $name;
         $this->annotationsToIgnore = $annotationsToIgnore;
         $this->annotationAliases = $annotationAliases;

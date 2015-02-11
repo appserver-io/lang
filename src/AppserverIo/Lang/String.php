@@ -38,21 +38,21 @@ class String extends Object implements \Serializable
      *
      * @var array
      */
-    protected $value = '';
+    protected $value;
 
     /**
      * The length of the String.
      *
      * @var integer
      */
-    protected $length = 0;
+    protected $length;
 
     /**
      * The cached hash of the String itself.
      *
      * @var integer
      */
-    protected $hash = 0;
+    protected $hash;
 
     /**
      * Initializes a newly created <code>String</code> object so that it
@@ -66,6 +66,12 @@ class String extends Object implements \Serializable
      */
     public function __construct($value = null)
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->value = '';
+        $this->length = 0;
+        $this->hash = 0;
+
         $this->init($value);
     }
 

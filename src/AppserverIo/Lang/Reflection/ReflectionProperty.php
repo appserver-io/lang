@@ -39,42 +39,42 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
      *
      * @var integer
      */
-    const ALL_MODIFIERS= -1;
+    const ALL_MODIFIERS = -1;
 
     /**
      * The properties class name.
      *
      * @var string
      */
-    protected $className = '';
+    protected $className;
 
     /**
      * The property name.
      *
      * @var string
      */
-    protected $propertyName = '';
+    protected $propertyName;
 
     /**
      * The method annotations.
      *
      * @var array
      */
-    protected $annotations = null;
+    protected $annotations;
 
     /**
      * Array with annotations names we want to ignore when loaded.
      *
      * @var array
      */
-    protected $annotationsToIgnore = array();
+    protected $annotationsToIgnore;
 
     /**
      * Array with annotation aliases used when create annotation instances.
      *
      * @var array
      */
-    protected $annotationAliases = array();
+    protected $annotationAliases;
 
     /**
      * Initializes the reflection property with the passed data.
@@ -86,6 +86,14 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
      */
     public function __construct($className, $propertyName, array $annotationsToIgnore = array(), array $annotationAliases = array())
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->className = '';
+        $this->propertyName = '';
+        $this->annotations = null;
+        $this->annotationsToIgnore = array();
+        $this->annotationAliases = array();
+
         $this->className = $className;
         $this->propertyName = $propertyName;
         $this->annotationsToIgnore = $annotationsToIgnore;

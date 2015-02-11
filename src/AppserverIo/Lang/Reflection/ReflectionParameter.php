@@ -39,21 +39,21 @@ class ReflectionParameter extends Object implements ParameterInterface, \Seriali
      *
      * @var string
      */
-    protected $className = '';
+    protected $className;
 
     /**
      * The name of the method the parameter belongs to.
      *
      * @var string
      */
-    protected $methodName = '';
+    protected $methodName;
 
     /**
      * The parameter name.
      *
      * @var string
      */
-    protected $parameterName = '';
+    protected $parameterName;
 
     /**
      * Initializes the reflection parameter with the passed data.
@@ -64,6 +64,12 @@ class ReflectionParameter extends Object implements ParameterInterface, \Seriali
      */
     public function __construct($className, $methodName, $parameterName)
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->className = '';
+        $this->methodName = '';
+        $this->parameterName = '';
+
         $this->className = $className;
         $this->methodName = $methodName;
         $this->parameterName = $parameterName;
