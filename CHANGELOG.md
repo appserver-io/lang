@@ -1,3 +1,13 @@
+# Version 1.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Updated to new stable dependencies
+
 # Version 0.1.18
 
 ## Bugfixes
