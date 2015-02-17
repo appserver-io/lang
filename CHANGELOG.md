@@ -1,3 +1,13 @@
+# Version 0.1.16
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Implement ReflectionClass::isAbstract() and ReflectionClass::isInterface() methods
+
 # Version 0.1.15
 
 ## Bugfixes
