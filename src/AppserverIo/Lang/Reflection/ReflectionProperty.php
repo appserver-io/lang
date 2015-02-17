@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Library
- * @package    Lang
- * @subpackage Reflection
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io/lang
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io/lang
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Lang\Reflection;
@@ -28,14 +25,11 @@ use AppserverIo\Lang\Object;
 /**
  * A wrapper instance for a reflection property.
  *
- * @category   Library
- * @package    Lang
- * @subpackage Reflection
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io/lang
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io/lang
+ * @link      http://www.appserver.io
  */
 class ReflectionProperty extends Object implements PropertyInterface, \Serializable
 {
@@ -45,42 +39,42 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
      *
      * @var integer
      */
-    const ALL_MODIFIERS= -1;
+    const ALL_MODIFIERS = -1;
 
     /**
      * The properties class name.
      *
      * @var string
      */
-    protected $className = '';
+    protected $className;
 
     /**
      * The property name.
      *
      * @var string
      */
-    protected $propertyName = '';
+    protected $propertyName;
 
     /**
      * The method annotations.
      *
      * @var array
      */
-    protected $annotations = null;
+    protected $annotations;
 
     /**
      * Array with annotations names we want to ignore when loaded.
      *
      * @var array
      */
-    protected $annotationsToIgnore = array();
+    protected $annotationsToIgnore;
 
     /**
      * Array with annotation aliases used when create annotation instances.
      *
      * @var array
      */
-    protected $annotationAliases = array();
+    protected $annotationAliases;
 
     /**
      * Initializes the reflection property with the passed data.
@@ -92,6 +86,14 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
      */
     public function __construct($className, $propertyName, array $annotationsToIgnore = array(), array $annotationAliases = array())
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->className = '';
+        $this->propertyName = '';
+        $this->annotations = null;
+        $this->annotationsToIgnore = array();
+        $this->annotationAliases = array();
+
         $this->className = $className;
         $this->propertyName = $propertyName;
         $this->annotationsToIgnore = $annotationsToIgnore;
@@ -213,7 +215,8 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
 
         // first check if the method is available
         $annotations = $this->getAnnotations();
-        if (isset($annotations[$annotationName])) { // if yes, return it
+        if (isset($annotations[$annotationName])) {
+            // if yes, return it
             return $annotations[$annotationName];
         }
 
@@ -262,7 +265,7 @@ class ReflectionProperty extends Object implements PropertyInterface, \Serializa
      * Returns an array of reflection property instances from the passed reflection class.
      *
      * @param \AppserverIo\Lang\Reflection\ReflectionClass $reflectionClass     The reflection class to return the properties for
-     * @param interger                                     $filter              The filter used for loading the properties
+     * @param integer                                      $filter              The filter used for loading the properties
      * @param array                                        $annotationsToIgnore An array with annotations names we want to ignore when loaded
      * @param array                                        $annotationAliases   An array with annotation aliases used when create annotation instances
      *

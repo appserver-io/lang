@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Library
- * @package    Lang
- * @subpackage Reflection
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io/lang
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io/lang
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Lang\Reflection;
@@ -27,19 +24,15 @@ use AppserverIo\Lang\Object;
 use Herrera\Annotations\Tokens;
 use Herrera\Annotations\Tokenizer;
 use Herrera\Annotations\Convert\ToArray;
-use Herrera\Annotations\Convert\ToString;
 
 /**
  * A generic and serializable annotation implementation.
  *
- * @category   Library
- * @package    Lang
- * @subpackage Reflection
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io/lang
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io/lang
+ * @link      http://www.appserver.io
  */
 class ReflectionAnnotation extends Object implements AnnotationInterface, \Serializable
 {
@@ -56,7 +49,7 @@ class ReflectionAnnotation extends Object implements AnnotationInterface, \Seria
      *
      * @var array
      */
-    protected $values = array();
+    protected $values;
 
     /**
      * The constructor the initializes the instance with the
@@ -67,6 +60,10 @@ class ReflectionAnnotation extends Object implements AnnotationInterface, \Seria
      */
     public function __construct($annotationName, array $values = array())
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->annotationName = '';
+        $this->values = array();
 
         // set the annotation name
         $this->annotationName = $annotationName;
@@ -246,7 +243,6 @@ class ReflectionAnnotation extends Object implements AnnotationInterface, \Seria
 
         // iterate over the tokens
         foreach ($toArray->convert($tokens) as $token) {
-
             // check if we've an annotation that matched an alias
             if (array_key_exists($token->name, $flipped = array_flip($aliases))) {
                 $annotationName = $flipped[$token->name];

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * \AppserverIo\Lang\Boolean
+ * \AppserverIo\Lang\Integer
  *
  * NOTICE OF LICENSE
  *
@@ -11,10 +11,8 @@
  *
  * PHP version 5
  *
- * @category  Library
- * @package   Lang
  * @author    Tim Wagner <tw@appserver.io>
- * @copyright 2014 TechDivision GmbH <info@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
@@ -26,10 +24,8 @@ namespace AppserverIo\Lang;
  * This class implements functionality to handle
  * a integer value as object.
  *
- * @category  Library
- * @package   Lang
  * @author    Tim Wagner <tw@appserver.io>
- * @copyright 2014 TechDivision GmbH <info@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
@@ -42,7 +38,7 @@ class Integer extends Number implements \Serializable
      *
      * @var integer
      */
-    protected $value = null;
+    protected $value;
 
     /**
      * Constructs a newly allocated <code>Integer</code> object that
@@ -50,11 +46,14 @@ class Integer extends Number implements \Serializable
      *
      * @param integer $value The value to be represented by the <code>Integer</code>.
      *
-     * @return void
      * @throws \AppserverIo\Lang\NumberFormatException Is thrown if the passed value is not an integer
      */
     public function __construct($value)
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->value = null;
+
         if (!is_int($value)) {
             NumberFormatException::forInputString($value);
         }

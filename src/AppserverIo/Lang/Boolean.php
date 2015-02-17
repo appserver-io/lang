@@ -11,10 +11,8 @@
  *
  * PHP version 5
  *
- * @category  Library
- * @package   Lang
  * @author    Tim Wagner <tw@appserver.io>
- * @copyright 2014 TechDivision GmbH <info@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
@@ -26,10 +24,8 @@ namespace AppserverIo\Lang;
  * This class implements functionality to handle
  * a boolean value as object.
  *
- * @category  Library
- * @package   Lang
  * @author    Tim Wagner <tw@appserver.io>
- * @copyright 2014 TechDivision GmbH <info@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
@@ -42,29 +38,14 @@ class Boolean extends Object
      *
      * @var boolean
      */
-    protected $value = false;
+    protected $value;
 
     /**
      * The accepted values for a Boolean object.
      *
      * @var array
      */
-    protected $booleans = array(
-        true,
-        false,
-        1,
-        0,
-        "1",
-        "0",
-        "true",
-        "false",
-        "on",
-        "off",
-        "yes",
-        "no",
-        "y",
-        "n"
-    );
+    protected $booleans;
 
     /**
      * The boolean representation of
@@ -72,22 +53,7 @@ class Boolean extends Object
      *
      * @var array
      */
-    protected $values = array(
-        true => true,
-        false => false,
-        1 => true,
-        0 => false,
-        "1" => true,
-        "0" => false,
-        "true" => true,
-        "false" => false,
-        "on" => true,
-        "off" => false,
-        "yes" => true,
-        "no" => false,
-        "y" => true,
-        "n" => false
-    );
+    protected $values;
 
     /**
      * Constructs a newly allocated Boolean object that
@@ -95,11 +61,47 @@ class Boolean extends Object
      *
      * @param boolean $value The value to be represented by the Boolean.
      *
-     * @return void
      * @throws \AppserverIo\Lang\ClassCastException The passed value is not a valid boolean representation
      */
     public function __construct($value)
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->value = false;
+        $this->booleans = array(
+            true,
+            false,
+            1,
+            0,
+            "1",
+            "0",
+            "true",
+            "false",
+            "on",
+            "off",
+            "yes",
+            "no",
+            "y",
+            "n"
+        );
+        $this->values = array(
+            true => true,
+            false => false,
+            1 => true,
+            0 => false,
+            "1" => true,
+            "0" => false,
+            "true" => true,
+            "false" => false,
+            "on" => true,
+            "off" => false,
+            "yes" => true,
+            "no" => false,
+            "y" => true,
+            "n" => false
+        );
+
+
         if (in_array($value, $this->booleans, true)) {
             $this->value = $this->values[$value];
         } else {

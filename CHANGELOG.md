@@ -1,4 +1,4 @@
-# Version 0.1.16
+# Version 1.1.0
 
 ## Bugfixes
 
@@ -7,6 +7,46 @@
 ## Features
 
 * Implement ReflectionClass::isAbstract() and ReflectionClass::isInterface() methods
+
+# Version 1.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Updated to new stable dependencies
+
+# Version 0.1.18
+
+## Bugfixes
+
+* Declarative property default values may break thread safety
+
+## Features
+
+* None
+
+# Version 0.1.17
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Applied new coding conventions
+
+# Version 0.1.16
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Added a NotImplementedException class
 
 # Version 0.1.15
 

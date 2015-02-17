@@ -1,7 +1,7 @@
 <?php
 
 /**
- * \AppserverIo\Lang\IllegalStateException
+ * \AppserverIo\Lang\NotImplementedException
  *
  * NOTICE OF LICENSE
  *
@@ -11,7 +11,7 @@
  *
  * PHP version 5
  *
- * @author    Tim Wagner <tw@appserver.io>
+ * @author    Bernhard Wick <bw@appserver.io>
  * @copyright 2015 TechDivision GmbH <info@appserver.io>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io/lang
@@ -21,14 +21,14 @@
 namespace AppserverIo\Lang;
 
 /**
- * Is thrown if the instance is in a state that does not allow access to this method.
+ * Thrown to indicate that the called method has not been implemented yet and can therefore not be used.
  *
- * @author    Tim Wagner <tw@appserver.io>
+ * @author    Bernhard Wick <bw@appserver.io>
  * @copyright 2015 TechDivision GmbH <info@appserver.io>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-class IllegalStateException extends \Exception
+class NotImplementedException extends \BadMethodCallException
 {
 }

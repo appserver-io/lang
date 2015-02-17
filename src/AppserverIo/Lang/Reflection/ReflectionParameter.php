@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Library
- * @package    Lang
- * @subpackage Reflection
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io/lang
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io/lang
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Lang\Reflection;
@@ -28,14 +25,11 @@ use AppserverIo\Lang\Object;
 /**
  * A wrapper instance for a reflection parameter.
  *
- * @category   Library
- * @package    Lang
- * @subpackage Reflection
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io/lang
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io/lang
+ * @link      http://www.appserver.io
  */
 class ReflectionParameter extends Object implements ParameterInterface, \Serializable
 {
@@ -45,21 +39,21 @@ class ReflectionParameter extends Object implements ParameterInterface, \Seriali
      *
      * @var string
      */
-    protected $className = '';
+    protected $className;
 
     /**
      * The name of the method the parameter belongs to.
      *
      * @var string
      */
-    protected $methodName = '';
+    protected $methodName;
 
     /**
      * The parameter name.
      *
      * @var string
      */
-    protected $parameterName = '';
+    protected $parameterName;
 
     /**
      * Initializes the reflection parameter with the passed data.
@@ -70,6 +64,12 @@ class ReflectionParameter extends Object implements ParameterInterface, \Seriali
      */
     public function __construct($className, $methodName, $parameterName)
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->className = '';
+        $this->methodName = '';
+        $this->parameterName = '';
+
         $this->className = $className;
         $this->methodName = $methodName;
         $this->parameterName = $parameterName;

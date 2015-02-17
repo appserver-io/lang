@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Library
- * @package    Lang
- * @subpackage Reflection
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io/lang
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io/lang
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Lang\Reflection;
@@ -28,14 +25,11 @@ use AppserverIo\Lang\Object;
 /**
  * A wrapper instance for a reflection method.
  *
- * @category   Library
- * @package    Lang
- * @subpackage Reflection
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io/lang
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io/lang
+ * @link      http://www.appserver.io
  */
 class ReflectionMethod extends Object implements MethodInterface, \Serializable
 {
@@ -45,49 +39,49 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
      *
      * @var integer
      */
-    const ALL_MODIFIERS= -1;
+    const ALL_MODIFIERS = -1;
 
     /**
      * The class name to invoke the method on.
      *
      * @var string
      */
-    protected $className = '';
+    protected $className;
 
     /**
      * The method name to invoke on the class.
      *
      * @var string
      */
-    protected $methodName = '';
+    protected $methodName;
 
     /**
      * The method parameters.
      *
      * @var string
      */
-    protected $parameters = null;
+    protected $parameters;
 
     /**
      * The method annotations.
      *
      * @var array
      */
-    protected $annotations = null;
+    protected $annotations;
 
     /**
      * Array with annotations names we want to ignore when loaded.
      *
      * @var array
      */
-    protected $annotationsToIgnore = array();
+    protected $annotationsToIgnore;
 
     /**
      * Array with annotation aliases used when create annotation instances.
      *
      * @var array
      */
-    protected $annotationAliases = array();
+    protected $annotationAliases;
 
     /**
      * Initializes the timeout method with the passed data.
@@ -99,6 +93,15 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
      */
     public function __construct($className, $methodName, array $annotationsToIgnore = array(), array $annotationAliases = array())
     {
+        // initialize property default values here, as declarative default values may break thread safety,
+        // when utilizing static and non-static access on class methods within same thread context!
+        $this->className = '';
+        $this->methodName = '';
+        $this->parameters = null;
+        $this->annotations = null;
+        $this->annotationsToIgnore = array();
+        $this->annotationAliases = array();
+
         $this->className = $className;
         $this->methodName = $methodName;
         $this->annotationsToIgnore = $annotationsToIgnore;
@@ -238,7 +241,8 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
 
         // first check if the method is available
         $annotations = $this->getAnnotations();
-        if (isset($annotations[$annotationName])) { // if yes, return it
+        if (isset($annotations[$annotationName])) {
+            // if yes, return it
             return $annotations[$annotationName];
         }
 
@@ -317,7 +321,7 @@ class ReflectionMethod extends Object implements MethodInterface, \Serializable
      * Returns an array of reflection method instances from the passed reflection class.
      *
      * @param \AppserverIo\Lang\Reflection\ReflectionClass $reflectionClass     The reflection class to return the methods for
-     * @param interger                                     $filter              The filter used for loading the methods
+     * @param integer                                      $filter              The filter used for loading the methods
      * @param array                                        $annotationsToIgnore An array with annotations names we want to ignore when loaded
      * @param array                                        $annotationAliases   An array with annotation aliases used when create annotation instances
      *

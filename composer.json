@@ -8,8 +8,7 @@
 		"herrera-io/annotations" : "1.0.*"
 	},
 	"require-dev" : {
-		"phpunit/phpunit" : "3.7.*",
-		"appserver-io/build" : "0.1.*"
+		"appserver-io/build" : "~1.0"
 	},
 	"autoload" : {
 		"psr-0" : {
@@ -19,12 +18,18 @@
 			]
 		}
 	},
-	"authors" : [{
+	"authors" : [
+        {
 			"name" : "Tim Wagner",
 			"email" : "tw@appserver.io",
 			"homepage" : "https://github.com/wagnert",
 			"role" : "Developer"
-		}
+		}, {
+            "name" : "Bernhard Wick",
+            "email" : "bw@appserver.io",
+            "homepage" : "https://github.com/wick-ed",
+            "role" : "Developer"
+        }
 	],
 	"config" : {
 		"github-oauth" : {
