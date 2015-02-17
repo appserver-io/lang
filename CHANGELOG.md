@@ -1,4 +1,4 @@
-# Version 1.1.0
+# Version 2.0.0
 
 ## Bugfixes
 
@@ -6,6 +6,7 @@
 
 ## Features
 
+* Add implementsInterface(), isAbstract() and isInterface() methods to ClassInterface
 * Implement ReflectionClass::isAbstract() and ReflectionClass::isInterface() methods
 
 # Version 1.0.0
