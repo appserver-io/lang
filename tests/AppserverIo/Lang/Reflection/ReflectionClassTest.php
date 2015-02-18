@@ -205,4 +205,34 @@ class ReflectionClassTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(array_key_exists($name, $annotationAliases));
         $this->assertContains($className, $annotationAliases);
     }
+
+    /**
+     * Checks if the implementsInterface() method works as expected.
+     *
+     * @return void
+     */
+    public function testImplementsInterfaceWithNotImplementedInterface()
+    {
+        $this->assertFalse($this->reflectionClass->implementsInterface('\Serializable'));
+    }
+
+    /**
+     * Checks if the isInterface() method works as expected.
+     *
+     * @return void
+     */
+    public function testIsInterface()
+    {
+        $this->assertFalse($this->reflectionClass->isInterface());
+    }
+
+    /**
+     * Checks if the isAbstract() method works as expected.
+     *
+     * @return void
+     */
+    public function testIsAbstract()
+    {
+        $this->assertFalse($this->reflectionClass->isAbstract());
+    }
 }

@@ -182,4 +182,30 @@ interface ClassInterface
      * @return void
      */
     public function addAnnotationAlias($annotationName, $annotationClassName);
+
+    /**
+     * Checks whether it implements the passed interface or not.
+     *
+     * @param string $interface The interface name
+     *
+     * @return boolean Returns TRUE on success or FALSE on failure
+     * @link php.net/manual/en/reflectionclass.implementsinterface.php
+     */
+    public function implementsInterface($interface);
+
+    /**
+     * Checks whether the class is an interface.
+     *
+     * @return boolean Returns TRUE on success or FALSE on failure
+     * @link php.net/manual/en/reflectionclass.isinterface.php
+     */
+    public function isInterface();
+
+    /**
+     * Checks if the class is abstract.
+     *
+     * @return boolean Rturns TRUE on success or FALSE on failure
+     * @link php.net/manual/en/reflectionclass.isabstract.php
+     */
+    public function isAbstract();
 }

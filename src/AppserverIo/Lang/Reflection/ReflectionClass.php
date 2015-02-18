@@ -414,11 +414,33 @@ class ReflectionClass extends Object implements ClassInterface, \Serializable
      * @param string $interface The interface name
      *
      * @return boolean Returns TRUE on success or FALSE on failure
-     * @link php.net/manual/en/reflectionclass.implementsinterface.php
+     * @see \AppserverIo\Lang\Reflection\ClassInterface::implementsInterface()
      */
     public function implementsInterface($interface)
     {
         return $this->toPhpReflectionClass()->implementsInterface($interface);
+    }
+
+    /**
+     * Checks whether the class is an interface.
+     *
+     * @return boolean Returns TRUE on success or FALSE on failure
+     * @see \AppserverIo\Lang\Reflection\ClassInterface::isInterface()
+     */
+    public function isInterface()
+    {
+        return $this->toPhpReflectionClass()->isInterface();
+    }
+
+    /**
+     * Checks if the class is abstract.
+     *
+     * @return boolean Rturns TRUE on success or FALSE on failure
+     * @see \AppserverIo\Lang\Reflection\ClassInterface::isAbstract()
+     */
+    public function isAbstract()
+    {
+        return $this->toPhpReflectionClass()->isInterface();
     }
 
     /**
