@@ -1,3 +1,13 @@
+# Version 1.0.1
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add private static ReflectionAnnotation::fromStdClass() method to initialize a ReflectionAnnotation from a \stdClass instance
+
 # Version 1.0.0
 
 ## Bugfixes
