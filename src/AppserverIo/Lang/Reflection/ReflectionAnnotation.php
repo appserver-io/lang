@@ -241,7 +241,7 @@ class ReflectionAnnotation extends Object implements AnnotationInterface, \Seria
         $tokens = new Tokens($parsed);
         $toArray = new ToArray();
 
-        // iterate over the tokens
+        // register annotations with the real annotation name (not the alias)
         foreach ($toArray->convert($tokens) as $token) {
             // check if we've an annotation that matched an alias
             if (array_key_exists($token->name, $flipped = array_flip($aliases))) {
@@ -251,11 +251,45 @@ class ReflectionAnnotation extends Object implements AnnotationInterface, \Seria
             }
 
             // register the annotation with the real annotation name (not the alias)
-            $annotations[$annotationName] = new ReflectionAnnotation($token->name, $token->values);
+            $annotations[$annotationName] = ReflectionAnnotation::fromStdClass($token, $aliases);
         }
 
         // return the list with the annotation instances
         return $annotations;
+    }
+
+    /**
+     * Initializes and returns a ReflectionAnnotation instance from the passed token.
+     *
+     * @param \stdClass $token   The token to initialize and return the ReflectionAnnotation instance from
+     * @param array     $aliases The class aliases to use
+     *
+     * @return \AppserverIo\Lang\Reflection\ReflectionAnnotation The initialized ReflectionAnnotation instance
+     */
+    private static function fromStdClass(\stdClass $token, array $aliases = array())
+    {
+
+        // iterate over the tokens values to process them recursively
+        foreach ($token->values as $name => $value) {
+            // query whether we've an array
+            if (is_array($value)) {
+                // iterate over all values of the array an process them recursively
+                foreach ($value as $key => $val) {
+                    // query whether we've a nested annotation
+                    if (is_object($val)) {
+                        $token->values[$name][$key] = ReflectionAnnotation::fromStdClass($val, $aliases);
+                    }
+                }
+            }
+
+            // query whether we've a nested annotation
+            if (is_object($value)) {
+                $token->values[$name] = ReflectionAnnotation::fromStdClass($value, $aliases);
+            }
+        }
+
+        // initialize and return the reflection annotation
+        return new ReflectionAnnotation($token->name, $token->values);
     }
 
     /**

@@ -30,6 +30,10 @@ namespace AppserverIo\Lang\Reflection;
  * @link      http://www.appserver.io
  *
  * @Test(name=ReflectionAnnotationTest)
+ * @Outer({
+ *     @Inner(name="Test"),
+ *     @Inner(name="AnotherTest")
+ * })
  */
 class ReflectionAnnotationTest extends \PHPUnit_Framework_TestCase
 {
@@ -246,5 +250,28 @@ class ReflectionAnnotationTest extends \PHPUnit_Framework_TestCase
     public function testGetWithInvalidKey()
     {
         $this->assertNull($this->annotationInstance->getValue('unknownKey'));
+    }
+
+    /**
+     * Test if nested annotations are successfully initialized.
+     *
+     * @return void
+     */
+    public function testNestedAnnotationsFromReflectionClass()
+    {
+
+        // load the annotations of this class
+        $reflectionClass = new ReflectionClass($this);
+
+        // load the outer annotation
+        $outer = $reflectionClass->getAnnotation('Outer');
+
+        // make sure that we've two inner annotations
+        $this->assertCount(2, $outer->getValue(0));
+
+        // query whether the annotation has been instanciated successfully
+        foreach ($outer->getValue(0) as $inner) {
+            $this->assertInstanceOf('AppserverIo\Lang\Reflection\AnnotationInterface', $inner);
+        }
     }
 }
