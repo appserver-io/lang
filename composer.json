@@ -31,11 +31,6 @@
             "role" : "Developer"
         }
 	],
-	"config" : {
-		"github-oauth" : {
-			"github.com" : "6e24de467be8089a2fc49a3bd8d4f0dc795574ef"
-		}
-	},
 	"support" : {
 		"email" : "t.wagner@techdivision.com",
 		"issues" : "https://github.com/appserver-io/lang/issues",
