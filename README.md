@@ -1,24 +1,21 @@
 # PHP language extension
 
-[![Latest Stable Version](https://poser.pugx.org/appserver-io/lang/v/stable.png)](https://packagist.org/packages/appserver-io/lang) [![Total Downloads](https://poser.pugx.org/appserver-io/lang/downloads.png)](https://packagist.org/packages/appserver-io/lang) [![License](https://poser.pugx.org/appserver-io/lang/license.png)](https://packagist.org/packages/appserver-io/lang) [![Build Status](https://travis-ci.org/appserver-io/lang.png)](https://travis-ci.org/appserver-io/lang) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/appserver-io/lang/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/appserver-io/lang/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/appserver-io/lang/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/appserver-io/lang/?branch=master)
+[![Latest Stable Version](https://img.shields.io/packagist/v/appserver-io/lang.svg?style=flat-square)](https://packagist.org/packages/appserver-io/lang) 
+ [![Total Downloads](https://img.shields.io/packagist/dt/appserver-io/lang.svg?style=flat-square)](https://packagist.org/packages/appserver-io/lang)
+ [![License](https://img.shields.io/packagist/l/appserver-io/lang.svg?style=flat-square)](https://packagist.org/packages/appserver-io/lang)
+ [![Build Status](https://img.shields.io/travis/appserver-io/lang/master.svg?style=flat-square)](http://travis-ci.org/appserver-io/lang)
+ [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/appserver-io/lang/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/appserver-io/lang/?branch=master)
+ [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/appserver-io/lang/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/appserver-io/lang/?branch=master)
 
 ## Introduction
 
 This package provides implementation of basic PHP datatypes.
 
-## Installation
+## Issues
 
-If you want to use the library with your application you can install it by adding
-
-```sh
-{
-    "require": {
-        "appserver-io/lang": "dev-master"
-    },
-}
-```
-
-to your `composer.json` and invoke `composer update` in your project.
+In order to bundle our efforts we would like to collect all issues regarding this package in [the main project repository's issue tracker](https://github.com/appserver-io/appserver/issues).
+Please reference the originating repository as the first element of the issue title e.g.:
+`[appserver-io/<ORIGINATING_REPO>] A issue I am having`
 
 ## Usage
 
@@ -115,6 +112,6 @@ i'll use that classes for simple things like type hints and so on.
 If you like to use that stuff also, feel free to implement your own types and
 send me a pull request :)
 
-# External Links
+## External Links
 
 * Documentation at [appserver.io](http://docs.appserver.io)
