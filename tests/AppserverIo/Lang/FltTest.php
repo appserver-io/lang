@@ -1,7 +1,7 @@
 <?php
 
 /**
- * \AppserverIo\Lang\FloatTest
+ * \AppserverIo\Lang\FltTest
  *
  * NOTICE OF LICENSE
  *
@@ -21,7 +21,7 @@
 namespace AppserverIo\Lang;
 
 /**
- * This is the test for the Float class.
+ * This is the test for the Flt class.
  *
  * @author    Tim Wagner <tw@appserver.io>
  * @copyright 2015 TechDivision GmbH <info@appserver.io>
@@ -29,7 +29,7 @@ namespace AppserverIo\Lang;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-class FloatTest extends \PHPUnit_Framework_TestCase
+class FltTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -40,12 +40,12 @@ class FloatTest extends \PHPUnit_Framework_TestCase
      */
     public function testSerializeAndUnserialize()
     {
-        // initialize a Float instance and clone it
-        $floatOne = new Float(0.1);
+        // initialize a Flt instance and clone it
+        $floatOne = new Flt(0.1);
         $clonedOne = clone $floatOne;
-        // serialize/unserialize the Float instance
+        // serialize/unserialize the Flt instance
         $floatOne->unserialize($floatOne->serialize());
-        // check that the two Float instances are equal
+        // check that the two Flt instances are equal
         $this->assertEquals($clonedOne, $floatOne);
     }
 
@@ -57,44 +57,44 @@ class FloatTest extends \PHPUnit_Framework_TestCase
     public function testGetClass()
     {
         // check for the correct class name
-        $this->assertEquals('AppserverIo\Lang\Float', Float::__getClass());
+        $this->assertEquals('AppserverIo\Lang\Flt', Flt::__getClass());
     }
 
     /**
-     * This test checks the Floats equal method.
+     * This test checks the Flt's equal method.
      *
      * @return void
      */
     public function testEquals()
     {
-        // initialize a new Float instance
-        $float = new Float(1.01);
-        // check that the two Floats are equal
-        $this->assertTrue($float->equals(new Float(1.01)));
+        // initialize a new Flt instance
+        $float = new Flt(1.01);
+        // check that the two Flt's are equal
+        $this->assertTrue($float->equals(new Flt(1.01)));
     }
 
     /**
-     * This test checks the Float's floatValue() method.
+     * This test checks the Flt's floatValue() method.
      *
      * @return void
      */
     public function testFloatValue()
     {
-        // initialize a new Float instance
-        $float = new Float(1.0005);
-        // check that float value of the Float instance
+        // initialize a new Flt instance
+        $float = new Flt(1.0005);
+        // check that float value of the Flt instance
         $this->assertEquals(1.0005, $float->floatValue());
     }
 
     /**
-     * This test checks the Float's intValue() method.
+     * This test checks the Flt's intValue() method.
      *
      * @return void
      */
     public function testIntValue()
     {
-        // initialize a new Float instance
-        $float = new Float(17.1);
+        // initialize a new Flt instance
+        $float = new Flt(17.1);
         // check that float value of the Float instance
         $this->assertEquals(17, $float->intValue());
     }
@@ -107,7 +107,7 @@ class FloatTest extends \PHPUnit_Framework_TestCase
     public function testDoubleValue()
     {
         // initialize a new Float instance
-        $float = new Float(17.05);
+        $float = new Flt(17.05);
         // check that double value of the Float instance
         $this->assertEquals(17.05, $float->doubleValue());
     }
@@ -119,12 +119,12 @@ class FloatTest extends \PHPUnit_Framework_TestCase
      */
     public function testValueOf()
     {
-        // initialize a new Float instance
-        $float = Float::valueOf(
-            new String('17.6')
+        // initialize a new Flt instance
+        $float = Flt::valueOf(
+            new Strg('17.6')
         );
         // check that the two Float instances are equal
-        $this->assertTrue($float->equals(new Float(17.6)));
+        $this->assertTrue($float->equals(new Flt(17.6)));
     }
 
     /**
@@ -137,28 +137,28 @@ class FloatTest extends \PHPUnit_Framework_TestCase
         // set the expected exception
         $this->setExpectedException('\AppserverIo\Lang\NumberFormatException');
         // initialize a new Float instance
-        $int = Float::valueOf(
-            new String('!17')
+        $int = Flt::valueOf(
+            new Strg('!17')
         );
     }
 
     /**
-     * This test checks the Floats's parseFloat() method.
+     * This test checks the Flt's parseFloat() method.
      *
      * @return void
      */
     public function testParseFloat()
     {
-        // initialize a new Float instance
-        $float = Float::parseFloat(
-            new String('17')
+        // initialize a new Flt instance
+        $float = Flt::parseFloat(
+            new Strg('17')
         );
         // check that the two floats are equal
         $this->assertEquals(17, $float);
     }
 
     /**
-     * This test checks the Float's parseFloat() method.
+     * This test checks the Flt's parseFloat() method.
      *
      * @return void
      */
@@ -167,67 +167,67 @@ class FloatTest extends \PHPUnit_Framework_TestCase
         // set the expected exception
         $this->setExpectedException('\AppserverIo\Lang\NumberFormatException');
         // initialize a new Float instance
-        $float = Float::parseFloat(new String('!17'));
+        $float = Flt::parseFloat(new Strg('!17'));
     }
 
     /**
-     * This test checks the Float's add() method.
+     * This test checks the Flt's add() method.
      *
      * @return void
      */
     public function testAdd()
     {
-        // initialize a new Float instance
-        $float = new Float(10.005);
-        $float->add(new Float(10.105));
+        // initialize a new Flt instance
+        $float = new Flt(10.005);
+        $float->add(new Flt(10.105));
         // check the value
         $this->assertEquals(20.11, $float->floatValue());
     }
 
     /**
-     * This test checks the Float's subtract() method.
+     * This test checks the Flt's subtract() method.
      *
      * @return void
      */
     public function testSubtract()
     {
-        // initialize a new Float instance
-        $float = new Float(10.6);
-        $float->subtract(new Float(32.6));
+        // initialize a new Flt instance
+        $float = new Flt(10.6);
+        $float->subtract(new Flt(32.6));
         // check the value
         $this->assertEquals(-22, $float->intValue());
     }
 
     /**
-     * This test checks the Float's multiply() method.
+     * This test checks the Flt's multiply() method.
      *
      * @return void
      */
     public function testMultiply()
     {
-        // initialize a new Float instance
-        $int = new Float(10.00);
-        $int->multiply(new Float(10.00));
+        // initialize a new Flt instance
+        $int = new Flt(10.00);
+        $int->multiply(new Flt(10.00));
         // check the value
         $this->assertEquals(100.00, $int->floatValue());
     }
 
     /**
-     * This test checks the Float's divide() method.
+     * This test checks the Flt's divide() method.
      *
      * @return void
      */
     public function testDivide()
     {
         // initialize a new Float instance
-        $int = new Float(10.00);
-        $int->divide(new Float(10.00));
+        $int = new Flt(10.00);
+        $int->divide(new Flt(10.00));
         // check the value
         $this->assertEquals(1.00, $int->floatValue());
     }
 
     /**
-     * This test checks the Float's divide() method
+     * This test checks the Flt's divide() method
      * with an odd result.
      *
      * @return void
@@ -235,8 +235,8 @@ class FloatTest extends \PHPUnit_Framework_TestCase
     public function testDivideToOddNumber()
     {
         // initialize a new Float instance
-        $float = new Float(11.00);
-        $float->divide(new Float(3.00));
+        $float = new Flt(11.00);
+        $float->divide(new Flt(3.00));
         // check the value
         $this->assertEquals(11.00 / 3.00, $float->floatValue());
     }

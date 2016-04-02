@@ -1,7 +1,7 @@
 <?php
 
 /**
- * \AppserverIo\Lang\Float
+ * \AppserverIo\Lang\Flt
  *
  * NOTICE OF LICENSE
  *
@@ -30,7 +30,7 @@ namespace AppserverIo\Lang;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-class Float extends Number implements \Serializable
+class Flt extends Number implements \Serializable
 {
 
     /**
@@ -126,36 +126,36 @@ class Float extends Number implements \Serializable
      * <code>1.0000002f</code>; if the string is converted directly to
      * <code>float</code>, <code>1.000000<b>1</b>f</code> results.
      *
-     * @param \AppserverIo\Lang\String $string The string to be parsed
+     * @param \AppserverIo\Lang\Strg $string The string to be parsed
      *
-     * @return \AppserverIo\Lang\Float A <code>Float</code> object holding the value represented by the <code>String</code> argument
+     * @return \AppserverIo\Lang\Flt A <code>Float</code> object holding the value represented by the <code>Strg</code> argument
      * @exception \AppserverIo\Lang\NumberFormatException If the string does not contain a parsable number
      */
-    public static function valueOf(String $string)
+    public static function valueOf(Strg $string)
     {
         if (! preg_match("/([0-9\.-]+)/", $string->stringValue())) {
-            NumberFormatException::forInputString($string->stringValue());
+            NumberFormatException::forInputStrg($string->stringValue());
         }
         if (! is_numeric($string->stringValue())) {
-            NumberFormatException::forInputString($string->stringValue());
+            NumberFormatException::forInputStrg($string->stringValue());
         }
-        return new Float((float) $string->stringValue());
+        return new Flt((float) $string->stringValue());
     }
 
     /**
      * Returns a new <code>float</code> initialized to the value
-     * represented by the specified <code>String</code>, as performed
+     * represented by the specified <code>Strg</code>, as performed
      * by the <code>valueOf</code> method of class <code>Float</code>.
      *
-     * @param \AppserverIo\Lang\String $string She string to be parsed
+     * @param \AppserverIo\Lang\Strg $string She string to be parsed
      *
      * @return float The <code>float</code> value represented by the string argument
      * @exception \AppserverIo\Lang\NumberFormatException If the string does not contain a parsable <code>float</code>.
-     * @see \AppserverIo\Lang\Float::valueOf($string)
+     * @see \AppserverIo\Lang\Flt::valueOf($string)
      */
-    public static function parseFloat(String $string)
+    public static function parseFloat(Strg $string)
     {
-        return Float::valueOf($string)->floatValue();
+        return Flt::valueOf($string)->floatValue();
     }
 
     /**
@@ -222,11 +222,11 @@ class Float extends Number implements \Serializable
     /**
      * This object as String returned.
      *
-     * @return \AppserverIo\Lang\String The value as String.
+     * @return \AppserverIo\Lang\Strg The value as String.
      */
     public function toString()
     {
-        return new String($this->value);
+        return new Strg($this->value);
     }
 
     /**
@@ -238,7 +238,7 @@ class Float extends Number implements \Serializable
      */
     public function __toString()
     {
-        $string = new String($this->value);
+        $string = new Strg($this->value);
         return $string->stringValue();
     }
 
@@ -251,7 +251,7 @@ class Float extends Number implements \Serializable
      */
     public function equals(Object $val)
     {
-        if ($val instanceof Float) {
+        if ($val instanceof Flt) {
             return $this->floatValue() == $val->floatValue();
         }
         return false;
@@ -260,11 +260,11 @@ class Float extends Number implements \Serializable
     /**
      * Adds the value of the passed Float.
      *
-     * @param \AppserverIo\Lang\Float $toAdd The Float to add
+     * @param \AppserverIo\Lang\Flt $toAdd The Float to add
      *
-     * @return \AppserverIo\Lang\Float The instance
+     * @return \AppserverIo\Lang\Flt The instance
      */
-    public function add(Float $toAdd)
+    public function add(Flt $toAdd)
     {
         $this->value += $toAdd->floatValue();
         return $this;
@@ -273,11 +273,11 @@ class Float extends Number implements \Serializable
     /**
      * Subtracts the value of the passed Float.
      *
-     * @param \AppserverIo\Lang\Float $toSubtract The Float to subtract
+     * @param \AppserverIo\Lang\Flt $toSubtract The Float to subtract
      *
-     * @return \AppserverIo\Lang\Float The instance
+     * @return \AppserverIo\Lang\Flt The instance
      */
-    public function subtract(Float $toSubtract)
+    public function subtract(Flt $toSubtract)
     {
         $this->value -= $toSubtract->floatValue();
         return $this;
@@ -286,11 +286,11 @@ class Float extends Number implements \Serializable
     /**
      * Multiplies the Float with the passed one.
      *
-     * @param \AppserverIo\Lang\Float $toMultiply The Float to multiply
+     * @param \AppserverIo\Lang\Flt $toMultiply The Float to multiply
      *
-     * @return \AppserverIo\Lang\Float The instance
+     * @return \AppserverIo\Lang\Flt The instance
      */
-    public function multiply(Float $toMultiply)
+    public function multiply(Flt $toMultiply)
     {
         $this->value *= $toMultiply->intValue();
         return $this;
@@ -299,11 +299,11 @@ class Float extends Number implements \Serializable
     /**
      * Divides the Float by the passed one.
      *
-     * @param \AppserverIo\Lang\Float $dividyBy The Float to dividy by
+     * @param \AppserverIo\Lang\Flt $dividyBy The Float to dividy by
      *
-     * @return \AppserverIo\Lang\Float The instance
+     * @return \AppserverIo\Lang\Flt The instance
      */
-    public function divide(Float $dividyBy)
+    public function divide(Flt $dividyBy)
     {
         $this->value = $this->value / $dividyBy->floatValue();
         return $this;

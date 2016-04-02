@@ -1,7 +1,7 @@
 <?php
 
 /**
- * \AppserverIo\Lang\String
+ * \AppserverIo\Lang\Strg
  *
  * NOTICE OF LICENSE
  *
@@ -30,7 +30,7 @@ namespace AppserverIo\Lang;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-class String extends Object implements \Serializable
+class Strg extends Object implements \Serializable
 {
 
     /**
@@ -81,7 +81,7 @@ class String extends Object implements \Serializable
      *
      * @param mixed $value The value to initialize the instance with
      *
-     * @return \AppserverIo\Lang\String The initialized instance
+     * @return \AppserverIo\Lang\Strg The initialized instance
      */
     protected function init($value)
     {
@@ -101,11 +101,11 @@ class String extends Object implements \Serializable
      *
      * @param mixed $value The value to initialize the String with
      *
-     * @return \AppserverIo\Lang\String The initialized String instance
+     * @return \AppserverIo\Lang\Strg The initialized String instance
      */
     public static function valueOf($value)
     {
-        return new String($value);
+        return new Strg($value);
     }
 
     /**
@@ -122,11 +122,11 @@ class String extends Object implements \Serializable
     /**
      * A copy of this object is returned.
      *
-     * @return \AppserverIo\Lang\String A copy of the String itself.
+     * @return \AppserverIo\Lang\Strg A copy of the String itself.
      */
     public function toString()
     {
-        return new String($this->stringValue());
+        return new Strg($this->stringValue());
     }
 
     /**
@@ -144,13 +144,13 @@ class String extends Object implements \Serializable
      * Returns a new String, containing the concatenated value
      * of the this string with the passed one.
      *
-     * @param \AppserverIo\Lang\String $string The String to concatenate
+     * @param \AppserverIo\Lang\Strg $string The String to concatenate
      *
-     * @return \AppserverIo\Lang\String The concatenated String
+     * @return \AppserverIo\Lang\Strg The concatenated String
      */
-    public function concat(String $string)
+    public function concat(Strg $string)
     {
-        return new String($this->stringValue() . $string->stringValue());
+        return new Strg($this->stringValue() . $string->stringValue());
     }
 
     /**
@@ -202,11 +202,11 @@ class String extends Object implements \Serializable
      * @param string $oldChar The old character
      * @param string $newChar The new character
      *
-     * @return \AppserverIo\Lang\String A string derived from this string by replacing every occurrence of <code>oldChar</code> with <code>newChar</code>
+     * @return \AppserverIo\Lang\Strg A string derived from this string by replacing every occurrence of <code>oldChar</code> with <code>newChar</code>
      */
     public function replace($oldChar, $newChar)
     {
-        return new String(str_replace($oldChar, $newChar, $this->stringValue()));
+        return new Strg(str_replace($oldChar, $newChar, $this->stringValue()));
     }
 
     /**
@@ -237,25 +237,25 @@ class String extends Object implements \Serializable
      * @param integer $beginIndex The beginning index, inclusive
      * @param integer $endIndex   The ending index, exclusive
      *
-     * @return \AppserverIo\Lang\String The specified substring
-     * @exception \AppserverIo\Lang\StringIndexOutOfBoundsException if the <code>beginIndex</code> is negative, or <code>endIndex</code> is larger than the length of this <code>String</code> object, or <code>beginIndex</code> is larger than <code>endIndex</code>.
+     * @return \AppserverIo\Lang\Strg The specified substring
+     * @exception \AppserverIo\Lang\StrgIndexOutOfBoundsException if the <code>beginIndex</code> is negative, or <code>endIndex</code> is larger than the length of this <code>String</code> object, or <code>beginIndex</code> is larger than <code>endIndex</code>.
      */
     public function substring($beginIndex, $endIndex)
     {
         if ($beginIndex < 0) {
-            StringIndexOutOfBoundsException::forIndex($beginIndex);
+            StrgIndexOutOfBoundsException::forIndex($beginIndex);
         }
         if ($endIndex > $this->length()) {
-            StringIndexOutOfBoundsException::forIndex($endIndex);
+            StrgIndexOutOfBoundsException::forIndex($endIndex);
         }
         if ($beginIndex > $endIndex) {
-            StringIndexOutOfBoundsException::forIndex($endIndex - $beginIndex);
+            StrgIndexOutOfBoundsException::forIndex($endIndex - $beginIndex);
         }
         if (($beginIndex == 0) && ($endIndex == $this->length())) {
             return $this;
         }
         $value = substr($this->stringValue(), $beginIndex, $endIndex);
-        return new String($value);
+        return new Strg($value);
     }
 
     /**
@@ -405,7 +405,7 @@ class String extends Object implements \Serializable
      * {@link Character#isSpace(char) whitespace} from the beginning and end
      * of a string; in fact, it trims all ASCII control characters as well.
      *
-     * @return \AppserverIo\Lang\String A reference of this string with leading and trailing white space removed, or this string if it has no leading or trailing white space.
+     * @return \AppserverIo\Lang\Strg A reference of this string with leading and trailing white space removed, or this string if it has no leading or trailing white space.
      */
     public function trim()
     {
@@ -416,7 +416,7 @@ class String extends Object implements \Serializable
      * md5 encryptes the string and returns the
      * instance.
      *
-     * @return \AppserverIo\Lang\String The instance md5 encrypted
+     * @return \AppserverIo\Lang\Strg The instance md5 encrypted
      */
     public function md5()
     {
@@ -427,7 +427,7 @@ class String extends Object implements \Serializable
      * Converts the string value to upper case
      * and returns the instance.
      *
-     * @return \AppserverIo\Lang\String The instance
+     * @return \AppserverIo\Lang\Strg The instance
      */
     public function toUpperCase()
     {
@@ -438,7 +438,7 @@ class String extends Object implements \Serializable
      * Converts the string value to lower case
      * and returns the instance.
      *
-     * @return \AppserverIo\Lang\String The instance
+     * @return \AppserverIo\Lang\Strg The instance
      */
     public function toLowerCase()
     {

@@ -138,19 +138,19 @@ class Boolean extends Object
      * returned object is initialized with the primitive value TRUE else
      * with FALSE.
      *
-     * @param \AppserverIo\Lang\String $string Holds the String object to get the Boolean representation for
+     * @param \AppserverIo\Lang\Strg $string Holds the String object to get the Boolean representation for
      *
      * @return \AppserverIo\Lang\Boolean The Boolean object representing the specified String.
      */
-    public static function valueOf(String $string)
+    public static function valueOf(Strg $string)
     {
         // if the passed value is "true" or "1" then return a new Boolean
         // object initialized with true
-        if ($string->equals(new String("1")) ||
-            $string->equals(new String("true")) ||
-            $string->equals(new String("yes")) ||
-            $string->equals(new String("on")) ||
-            $string->equals(new String("y"))) {
+        if ($string->equals(new Strg("1")) ||
+            $string->equals(new Strg("true")) ||
+            $string->equals(new Strg("yes")) ||
+            $string->equals(new Strg("on")) ||
+            $string->equals(new Strg("y"))) {
             return new Boolean(true);
         }
         // else return a new Boolean object initialized with false
@@ -174,11 +174,11 @@ class Boolean extends Object
     /**
      * This object as String returned.
      *
-     * @return \AppserverIo\Lang\String The value as String.
+     * @return \AppserverIo\Lang\Strg The value as String.
      */
     public function toString()
     {
-        return new String($this->__toString());
+        return new Strg($this->__toString());
     }
 
     /**
