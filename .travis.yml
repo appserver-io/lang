@@ -7,7 +7,7 @@ php:
   - 5.4
   
 before_install:
-  - pyrus install pear/PHP_CodeSniffer
+  - pecl install xdebug
   - phpenv rehash
   - wget https://scrutinizer-ci.com/ocular.phar
 
