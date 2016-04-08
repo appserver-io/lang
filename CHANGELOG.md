@@ -1,3 +1,13 @@
+# Version 3.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Refactoring to work with PHP 7
+
 # Version 2.0.0
 
 ## Bugfixes

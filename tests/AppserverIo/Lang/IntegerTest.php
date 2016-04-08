@@ -120,7 +120,7 @@ class IntegerTest extends \PHPUnit_Framework_TestCase
     public function testValueOf()
     {
         // initialize a new Integer instance
-        $int = Integer::valueOf(new String('17'));
+        $int = Integer::valueOf(new Strg('17'));
         // check that the two Integer instances are equal
         $this->assertTrue($int->equals(new Integer(17)));
     }
@@ -135,7 +135,7 @@ class IntegerTest extends \PHPUnit_Framework_TestCase
         // set the expected exception
         $this->setExpectedException('\AppserverIo\Lang\NumberFormatException');
         // initialize a new Integer instance
-        $int = Integer::valueOf(new String('!17'));
+        $int = Integer::valueOf(new Strg('!17'));
     }
 
     /**
@@ -146,7 +146,7 @@ class IntegerTest extends \PHPUnit_Framework_TestCase
     public function testParseInteger()
     {
         // initialize a new Integer instance
-        $int = Integer::parseInteger(new String('17'));
+        $int = Integer::parseInteger(new Strg('17'));
         // check that the two integers are equal
         $this->assertEquals(17, $int);
     }
@@ -161,7 +161,7 @@ class IntegerTest extends \PHPUnit_Framework_TestCase
         // set the expected exception
         $this->setExpectedException('\AppserverIo\Lang\NumberFormatException');
         // initialize a new Integer instance
-        $int = Integer::parseInteger(new String('!17'));
+        $int = Integer::parseInteger(new Strg('!17'));
     }
 
     /**
