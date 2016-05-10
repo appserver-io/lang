@@ -126,34 +126,34 @@ class Flt extends Number implements \Serializable
      * <code>1.0000002f</code>; if the string is converted directly to
      * <code>float</code>, <code>1.000000<b>1</b>f</code> results.
      *
-     * @param \AppserverIo\Lang\Strg $string The string to be parsed
+     * @param \AppserverIo\Lang\Strng $string The string to be parsed
      *
-     * @return \AppserverIo\Lang\Flt A <code>Float</code> object holding the value represented by the <code>Strg</code> argument
+     * @return \AppserverIo\Lang\Flt A <code>Float</code> object holding the value represented by the <code>Strng</code> argument
      * @exception \AppserverIo\Lang\NumberFormatException If the string does not contain a parsable number
      */
-    public static function valueOf(Strg $string)
+    public static function valueOf(Strng $string)
     {
         if (! preg_match("/([0-9\.-]+)/", $string->stringValue())) {
-            NumberFormatException::forInputStrg($string->stringValue());
+            NumberFormatException::forInputString($string->stringValue());
         }
         if (! is_numeric($string->stringValue())) {
-            NumberFormatException::forInputStrg($string->stringValue());
+            NumberFormatException::forInputString($string->stringValue());
         }
         return new Flt((float) $string->stringValue());
     }
 
     /**
      * Returns a new <code>float</code> initialized to the value
-     * represented by the specified <code>Strg</code>, as performed
+     * represented by the specified <code>Strng</code>, as performed
      * by the <code>valueOf</code> method of class <code>Float</code>.
      *
-     * @param \AppserverIo\Lang\Strg $string She string to be parsed
+     * @param \AppserverIo\Lang\Strng $string She string to be parsed
      *
      * @return float The <code>float</code> value represented by the string argument
      * @exception \AppserverIo\Lang\NumberFormatException If the string does not contain a parsable <code>float</code>.
      * @see \AppserverIo\Lang\Flt::valueOf($string)
      */
-    public static function parseFloat(Strg $string)
+    public static function parseFloat(Strng $string)
     {
         return Flt::valueOf($string)->floatValue();
     }
@@ -222,11 +222,11 @@ class Flt extends Number implements \Serializable
     /**
      * This object as String returned.
      *
-     * @return \AppserverIo\Lang\Strg The value as String.
+     * @return \AppserverIo\Lang\Strng The value as String.
      */
     public function toString()
     {
-        return new Strg($this->value);
+        return new Strng($this->value);
     }
 
     /**
@@ -238,7 +238,7 @@ class Flt extends Number implements \Serializable
      */
     public function __toString()
     {
-        $string = new Strg($this->value);
+        $string = new Strng($this->value);
         return $string->stringValue();
     }
 

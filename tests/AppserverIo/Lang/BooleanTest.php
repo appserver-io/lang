@@ -211,7 +211,7 @@ class BooleanTest extends \PHPUnit_Framework_TestCase
         // initialize a new Boolean instance
         $boolean = new Boolean(true);
         // check that the two boolean are equal
-        $this->assertEquals(new Strg('true'), $boolean->toString());
+        $this->assertEquals(new Strng('true'), $boolean->toString());
     }
 
     /**

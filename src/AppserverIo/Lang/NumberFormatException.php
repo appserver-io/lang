@@ -43,7 +43,7 @@ class NumberFormatException extends \Exception
      * @return void
      * @throws \AppserverIo\Lang\NumberFormatException The number format exception itself
      */
-    public static function forInputStrg($message)
+    public static function forInputString($message)
     {
         throw new NumberFormatException('For input string: "' . $message . '"');
     }
