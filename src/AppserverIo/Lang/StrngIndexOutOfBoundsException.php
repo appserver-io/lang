@@ -1,7 +1,7 @@
 <?php
 
 /**
- * \AppserverIo\Lang\StrgIndexOutOfBoundsException
+ * \AppserverIo\Lang\StrngIndexOutOfBoundsException
  *
  * NOTICE OF LICENSE
  *
@@ -31,20 +31,20 @@ namespace AppserverIo\Lang;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-class StrgIndexOutOfBoundsException extends \Exception
+class StrngIndexOutOfBoundsException extends \Exception
 {
 
     /**
-     * Constructs a new <code>StrgIndexOutOfBoundsException</code>
+     * Constructs a new <code>StrngIndexOutOfBoundsException</code>
      * class with an argument indicating the illegal index.
      *
      * @param integer $index The illegal index
      *
      * @return void
-     * @throws StrgIndexOutOfBoundsException
+     * @throws StrngIndexOutOfBoundsException
      */
     public static function forIndex($index)
     {
-        throw new StrgIndexOutOfBoundsException('String index out of range: ' . $index);
+        throw new StrngIndexOutOfBoundsException('String index out of range: ' . $index);
     }
 }

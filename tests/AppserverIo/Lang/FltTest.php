@@ -121,7 +121,7 @@ class FltTest extends \PHPUnit_Framework_TestCase
     {
         // initialize a new Flt instance
         $float = Flt::valueOf(
-            new Strg('17.6')
+            new Strng('17.6')
         );
         // check that the two Float instances are equal
         $this->assertTrue($float->equals(new Flt(17.6)));
@@ -138,7 +138,7 @@ class FltTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('\AppserverIo\Lang\NumberFormatException');
         // initialize a new Float instance
         $int = Flt::valueOf(
-            new Strg('!17')
+            new Strng('!17')
         );
     }
 
@@ -151,7 +151,7 @@ class FltTest extends \PHPUnit_Framework_TestCase
     {
         // initialize a new Flt instance
         $float = Flt::parseFloat(
-            new Strg('17')
+            new Strng('17')
         );
         // check that the two floats are equal
         $this->assertEquals(17, $float);
@@ -167,7 +167,7 @@ class FltTest extends \PHPUnit_Framework_TestCase
         // set the expected exception
         $this->setExpectedException('\AppserverIo\Lang\NumberFormatException');
         // initialize a new Float instance
-        $float = Flt::parseFloat(new Strg('!17'));
+        $float = Flt::parseFloat(new Strng('!17'));
     }
 
     /**
