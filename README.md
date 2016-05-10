@@ -79,31 +79,31 @@ echo $int->stringValue() . PHP_EOL; // '17'
 $int->equals(Integer::valueOf(new String('17'))); // true
 ```
 
-### Float
+### Flt (Float before version 3.0)
 
-The example for using a `Float` shows you how to add to instances
+The example for using a `Flt` shows you how to add to instances
 and print the float value
 
 ```php
 // initialize a new Float instance
-$float = new Float(10.005);
-$float->add(new Float(10.105));
+$float = new Flt(10.005);
+$float->add(new Flt(10.105));
         
 // check the value
 echo $float->floatValue() . PHP_EOL; // 20.11
 ```
 
-### String
+### Strng (String before version 3.0)
 
-To show you how you can use the `String` class we'll simple concatenate
+To show you how you can use the `Strng` class we'll simple concatenate
 to instances
 
 ```php
 // initialize a new String instance
-$string = new String('value to');
+$string = new Strng('value to');
 		
 // check that String was successfully concatenated
-echo $string->concat(new String(' search')) . PHP_EOL; // 'value to search'
+echo $string->concat(new Strng(' search')) . PHP_EOL; // 'value to search'
 ```
 
 Yeah, this are really simple examples, and as i told you before in most cases
