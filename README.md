@@ -99,7 +99,7 @@ To show you how you can use the `Strng` class we'll simple concatenate
 to instances
 
 ```php
-// initialize a new Strng instance
+// initialize a new String instance
 $string = new Strng('value to');
 		
 // check that String was successfully concatenated
