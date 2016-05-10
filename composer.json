@@ -1,42 +1,43 @@
 {
-	"name" : "appserver-io/lang",
-	"description" : "Lang package implementation providing basic PHP datatypes.",
-	"homepage" : "https://github.com/appserver-io/lang",
-	"license" : "OSL-3.0",
-	"require" : {
-		"php" : ">=5.4.0",
-		"herrera-io/annotations" : "1.0.*"
-	},
-	"require-dev" : {
-		"appserver-io/build" : "~1.0"
-	},
-	"autoload" : {
-		"psr-0" : {
-			"AppserverIo\\Lang" : [
-				"src/",
-				"tests/"
-			]
-		}
-	},
-	"authors" : [
-        {
-			"name" : "Tim Wagner",
-			"email" : "tw@appserver.io",
-			"homepage" : "https://github.com/wagnert",
-			"role" : "Developer"
-		}, {
-            "name" : "Bernhard Wick",
-            "email" : "bw@appserver.io",
-            "homepage" : "https://github.com/wick-ed",
-            "role" : "Developer"
+    "name": "appserver-io/lang",
+    "description": "Lang package implementation providing basic PHP datatypes.",
+    "homepage": "https://github.com/appserver-io/lang",
+    "license": "OSL-3.0",
+    "require": {
+        "php": ">=5.4.0 <7.0",
+        "herrera-io/annotations": "1.0.*"
+    },
+    "require-dev": {
+        "appserver-io/build": "~1.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "AppserverIo\\Lang": [
+                "src/",
+                "tests/"
+            ]
         }
-	],
-	"support" : {
-		"email" : "t.wagner@techdivision.com",
-		"issues" : "https://github.com/appserver-io/lang/issues",
-		"source" : "https://github.com/appserver-io/lang"
-	},
-	"keywords" : [
-		"basic datatypes objects boolean string float integer"
-	]
+    },
+    "authors": [
+        {
+            "name": "Tim Wagner",
+            "email": "tw@appserver.io",
+            "homepage": "https://github.com/wagnert",
+            "role": "Developer"
+        },
+        {
+            "name": "Bernhard Wick",
+            "email": "bw@appserver.io",
+            "homepage": "https://github.com/wick-ed",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "t.wagner@techdivision.com",
+        "issues": "https://github.com/appserver-io/lang/issues",
+        "source": "https://github.com/appserver-io/lang"
+    },
+    "keywords": [
+        "basic datatypes objects boolean string float integer"
+    ]
 }
