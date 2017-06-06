@@ -61,6 +61,13 @@ interface ParameterInterface
     public function getPosition();
 
     /**
+     * Returns the parameters class name.
+     *
+     * @return string The parameters class name
+     */
+    public function getType();
+
+    /**
      * Returns a PHP reflection parameter representation of this instance.
      *
      * @return \ReflectionParameter The PHP reflection parameter instance

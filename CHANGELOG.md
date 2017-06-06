@@ -1,4 +1,4 @@
-# Version 3.0.0
+# Version 4.0.0
 
 ## Bugfixes
 
@@ -7,6 +7,16 @@
 ## Features
 
 * Refactoring to work with PHP 7
+
+# Version 3.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add getType() method to ParameterInterface + implement ReflectionParameter::getType() method
 
 # Version 2.0.0
 
