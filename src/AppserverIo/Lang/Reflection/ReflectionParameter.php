@@ -131,6 +131,17 @@ class ReflectionParameter extends Object implements ParameterInterface, \Seriali
     }
 
     /**
+     * Returns the parameters class name.
+     *
+     * @return string The parameters class name
+     * @see \AppserverIo\Lang\Reflection\ParameterInterface::getType()
+     */
+    public function getType()
+    {
+        return $this->toPhpReflectionParameter()->getClass()->getName();
+    }
+
+    /**
      * Serializes the timeout method and returns a string representation.
      *
      * @return string The serialized string representation of the instance
