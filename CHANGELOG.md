@@ -1,3 +1,13 @@
+# Version 3.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add getType() method to ParameterInterface + implement ReflectionParameter::getType() method
+
 # Version 2.0.0
 
 ## Bugfixes
