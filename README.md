@@ -22,13 +22,13 @@ Please reference the originating repository as the first element of the issue ti
 This package provides classes representing an object oriented implementation for some basic datatypes. 
 
 As there has been (and still are) many discussions about PHP and type safety i decided to implement a small, really
-basic library that will offer the most basic datatype needed in nearly every project. To be honest, i really like
+basic library that will offer the most basic datatype needed in nearly every project. To be honest, I really like
 almost all of those nice possibilities languages like Java provides, but as PHP is not Java, you always have to find a
-neat way for implementing similar things in a way it makes sense in a PHP environment.
+neat way to implement similar things in a way that makes sense in a PHP environment.
 
-The intention for implementing that classes was the possibility to make your critical functions and methods type safe,
-by using them for type hints on the one hand and the possibility to have an quick and easy to use kind of data
-validation mechanism on the other.
+The intention for implementing those classes was the possibility to make your critical functions and methods Type-Safe,
+by using them for type hinting on one hand and the possibility to have a quick and easy to use kind of data
+validation mechanism on the other hand.
 
 As you may know, using type hints will probably slow down your code a bit, so take care when you use them and
 always have an eye on possible performance impacts by running performance tests regularly.
