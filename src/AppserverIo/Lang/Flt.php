@@ -234,7 +234,7 @@ class Flt extends Number implements \Serializable
      * a string representation.
      *
      * @return string The objects string representation
-     * @see \AppserverIo\Lang\Object::__toString()
+     * @see \AppserverIo\Lang\Objct::__toString()
      */
     public function __toString()
     {
@@ -245,11 +245,11 @@ class Flt extends Number implements \Serializable
     /**
      * Returns true if the passed value is equal.
      *
-     * @param \AppserverIo\Lang\Object $val The value to check
+     * @param \AppserverIo\Lang\Objct $val The value to check
      *
      * @return boolean
      */
-    public function equals(Object $val)
+    public function equals(Objct $val)
     {
         if ($val instanceof Flt) {
             return $this->floatValue() == $val->floatValue();

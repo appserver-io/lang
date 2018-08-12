@@ -40,7 +40,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetClass()
     {
-        $this->assertEquals('AppserverIo\Lang\Object', Object::__getClass());
+        $this->assertEquals('AppserverIo\Lang\Objct', Objct::__getClass());
     }
 
     /**
@@ -51,8 +51,8 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
      */
     public function testEqualFails()
     {
-        $object1 = $this->getMockForAbstractClass('\AppserverIo\Lang\Object');
-        $object2 = $this->getMockForAbstractClass('\AppserverIo\Lang\Object');
+        $object1 = $this->getMockForAbstractClass('\AppserverIo\Lang\Objct');
+        $object2 = $this->getMockForAbstractClass('\AppserverIo\Lang\Objct');
         $this->assertFalse($object1->equals($object2));
     }
 
@@ -64,7 +64,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
      */
     public function testEqualSuccess()
     {
-        $object1 = $this->getMockForAbstractClass('\AppserverIo\Lang\Object');
+        $object1 = $this->getMockForAbstractClass('\AppserverIo\Lang\Objct');
         $this->assertTrue($object1->equals($object1));
     }
 
@@ -76,7 +76,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
      */
     public function testToString()
     {
-        $object = $this->getMockForAbstractClass('\AppserverIo\Lang\Object');
+        $object = $this->getMockForAbstractClass('\AppserverIo\Lang\Objct');
         $this->assertEquals(get_class($object) . '@' . sha1(serialize($object)), $object->__toString());
     }
 }

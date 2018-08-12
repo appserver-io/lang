@@ -20,7 +20,7 @@
 
 namespace AppserverIo\Lang\Reflection;
 
-use AppserverIo\Lang\Object;
+use AppserverIo\Lang\Objct;
 
 /**
  * A mock annotation implementation.
@@ -31,7 +31,7 @@ use AppserverIo\Lang\Object;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-class MockAnnotation extends Object
+class MockAnnotation extends Objct
 {
 
     /**

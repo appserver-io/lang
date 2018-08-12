@@ -30,7 +30,7 @@ namespace AppserverIo\Lang;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-class Boolean extends Object
+class Boolean extends Objct
 {
 
     /**
@@ -161,12 +161,12 @@ class Boolean extends Object
      * This method checks if the passed object is equal
      * to itself.
      *
-     * @param \AppserverIo\Lang\Object $obj The object to check
+     * @param \AppserverIo\Lang\Objct $obj The object to check
      *
      * @return boolean Returns TRUE if the passed object is equal
-     * @see \AppserverIo\Lang\Object::equals()
+     * @see \AppserverIo\Lang\Objct::equals()
      */
-    public function equals(Object $obj)
+    public function equals(Objct $obj)
     {
         return $this->booleanValue() == $obj->booleanValue();
     }
@@ -186,7 +186,7 @@ class Boolean extends Object
      * a string representation.
      *
      * @return string The objects string representation
-     * @see \AppserverIo\Lang\Object::__toString()
+     * @see \AppserverIo\Lang\Objct::__toString()
      */
     public function __toString()
     {

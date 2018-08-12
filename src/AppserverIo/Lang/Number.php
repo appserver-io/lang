@@ -29,7 +29,7 @@ namespace AppserverIo\Lang;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-abstract class Number extends Object
+abstract class Number extends Objct
 {
 
     /**
