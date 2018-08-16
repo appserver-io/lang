@@ -35,19 +35,19 @@ always have an eye on possible performance impacts by running performance tests 
 
 The data type implementations this library will provide, are
 
-* Object
+* Objct
 * Boolean
 * Integer
-* Float
-* String
+* Flt
+* Strng
 
 The following examples wil give you a short introduction about the functionality each class will provide and
 how you can use it in your code. Please be aware, that the examples are not intended to make any sense, they
 should only give you an idea what is possible.
 
-### Object
+### Objct (Object before version 5.0)
 
-The abstract class `Object` implements a low level presentation of a class. All other classes of this library use it
+The abstract class `Objct` implements a low level presentation of a class. All other classes of this library use it
 as superclass.
 
 ### Boolean
