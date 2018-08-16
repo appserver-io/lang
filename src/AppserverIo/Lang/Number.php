@@ -54,5 +54,5 @@ abstract class Number extends Objct
      *
      * @return double The numeric value represented by this object after conversion to type <code>double</code>
      */
-     abstract public function doubleValue();
+    abstract public function doubleValue();
 }
