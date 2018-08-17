@@ -29,7 +29,7 @@ namespace AppserverIo\Lang;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-abstract class Number extends Object
+abstract class Number extends Objct
 {
 
     /**
@@ -54,5 +54,5 @@ abstract class Number extends Object
      *
      * @return double The numeric value represented by this object after conversion to type <code>double</code>
      */
-     abstract public function doubleValue();
+    abstract public function doubleValue();
 }

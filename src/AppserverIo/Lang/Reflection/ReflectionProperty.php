@@ -20,7 +20,7 @@
 
 namespace AppserverIo\Lang\Reflection;
 
-use AppserverIo\Lang\Object;
+use AppserverIo\Lang\Objct;
 
 /**
  * A wrapper instance for a reflection property.
@@ -31,7 +31,7 @@ use AppserverIo\Lang\Object;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-class ReflectionProperty extends Object implements PropertyInterface, \Serializable
+class ReflectionProperty extends Objct implements PropertyInterface, \Serializable
 {
 
     /**

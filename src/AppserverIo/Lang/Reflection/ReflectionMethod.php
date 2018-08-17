@@ -20,7 +20,7 @@
 
 namespace AppserverIo\Lang\Reflection;
 
-use AppserverIo\Lang\Object;
+use AppserverIo\Lang\Objct;
 
 /**
  * A wrapper instance for a reflection method.
@@ -31,7 +31,7 @@ use AppserverIo\Lang\Object;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-class ReflectionMethod extends Object implements MethodInterface, \Serializable
+class ReflectionMethod extends Objct implements MethodInterface, \Serializable
 {
 
     /**

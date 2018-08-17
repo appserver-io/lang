@@ -29,7 +29,7 @@ namespace AppserverIo\Lang;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-abstract class Object
+abstract class Objct
 {
 
     /**
@@ -58,11 +58,11 @@ abstract class Object
      * This method checks if the passed object is equal
      * to itself.
      *
-     * @param \AppserverIo\Lang\Object $obj The object to check
+     * @param \AppserverIo\Lang\Objct $obj The object to check
      *
      * @return boolean Returns TRUE if the passed object is equal
      */
-    public function equals(Object $obj)
+    public function equals(Objct $obj)
     {
         if ($obj === $this) {
             return true;

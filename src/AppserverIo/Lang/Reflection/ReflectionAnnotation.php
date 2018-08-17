@@ -20,7 +20,7 @@
 
 namespace AppserverIo\Lang\Reflection;
 
-use AppserverIo\Lang\Object;
+use AppserverIo\Lang\Objct;
 use Herrera\Annotations\Tokens;
 use Herrera\Annotations\Tokenizer;
 use Herrera\Annotations\Convert\ToArray;
@@ -34,7 +34,7 @@ use Herrera\Annotations\Convert\ToArray;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-class ReflectionAnnotation extends Object implements AnnotationInterface, \Serializable
+class ReflectionAnnotation extends Objct implements AnnotationInterface, \Serializable
 {
 
     /**

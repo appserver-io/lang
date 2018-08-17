@@ -1,3 +1,13 @@
+# Version 5.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Renamed "Object" class to "Objct" to avoid typing issues
+
 # Version 4.0.0
 
 ## Bugfixes

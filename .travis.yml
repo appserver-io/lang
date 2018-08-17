@@ -1,18 +1,16 @@
 language: php
 
 php:
-  - 7.0
+  - 7.2
   - 5.6
-  - 5.5
 
 matrix:
   allow_failures:
-    - php: 7.0
+    - php: 7.2
 
 before_install:
-  - if [[ "$TRAVIS_PHP_VERSION" < "7.0" ]]; then pecl install pthreads-2.0.10; fi
-  - if [[ "$TRAVIS_PHP_VERSION" = "7.0" ]] || [[ "$TRAVIS_PHP_VERSION" > "7.0" ]]; then pecl install pthreads-3.1.6; fi
-  - pecl install xdebug
+  - if [[ "$TRAVIS_PHP_VERSION" < "7.0" ]]; then pecl install xdebug-2.5.5; fi
+  - if [[ "$TRAVIS_PHP_VERSION" = "7.0" ]] || [[ "$TRAVIS_PHP_VERSION" > "7.0" ]]; then pecl install xdebug; fi
   - phpenv rehash
   - wget https://scrutinizer-ci.com/ocular.phar
 

@@ -30,7 +30,7 @@ namespace AppserverIo\Lang;
  * @link      https://github.com/appserver-io/lang
  * @link      http://www.appserver.io
  */
-class Strng extends Object implements \Serializable
+class Strng extends Objct implements \Serializable
 {
 
     /**
@@ -212,11 +212,11 @@ class Strng extends Object implements \Serializable
     /**
      * Returns true if the passed value is equal.
      *
-     * @param \AppserverIo\Lang\Object $val The value to check
+     * @param \AppserverIo\Lang\Objct $val The value to check
      *
      * @return boolean
      */
-    public function equals(Object $val)
+    public function equals(Objct $val)
     {
         return $this->stringValue() == $val->stringValue();
     }
